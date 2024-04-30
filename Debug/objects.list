@@ -1,3 +1,4 @@
+"./Core/Src/GSM_GPS.o"
 "./Core/Src/IR.o"
 "./Core/Src/WaterSensor.o"
 "./Core/Src/dht22.o"
