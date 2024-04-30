@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -57,6 +59,36 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Motor1_INT2_Pin GPIO_PIN_4
+#define Motor1_INT2_GPIO_Port GPIOA
+#define Motor1_INT1_Pin GPIO_PIN_5
+#define Motor1_INT1_GPIO_Port GPIOA
+#define Motor2_INT1_Pin GPIO_PIN_6
+#define Motor2_INT1_GPIO_Port GPIOA
+#define Motor2_INT2_Pin GPIO_PIN_7
+#define Motor2_INT2_GPIO_Port GPIOA
+#define Motor3_INT1_Pin GPIO_PIN_0
+#define Motor3_INT1_GPIO_Port GPIOB
+#define Motor3_INT2_Pin GPIO_PIN_1
+#define Motor3_INT2_GPIO_Port GPIOB
+#define Motor4_INT1_Pin GPIO_PIN_2
+#define Motor4_INT1_GPIO_Port GPIOB
+#define Motor4_INT2_Pin GPIO_PIN_12
+#define Motor4_INT2_GPIO_Port GPIOB
+#define Ulta_Trigger1_Pin GPIO_PIN_13
+#define Ulta_Trigger1_GPIO_Port GPIOB
+#define IR1_Pin GPIO_PIN_14
+#define IR1_GPIO_Port GPIOB
+#define DHT_Pin GPIO_PIN_15
+#define DHT_GPIO_Port GPIOB
+#define IR2_Pin GPIO_PIN_15
+#define IR2_GPIO_Port GPIOA
+#define IR3_Pin GPIO_PIN_3
+#define IR3_GPIO_Port GPIOB
+#define IR4_Pin GPIO_PIN_4
+#define IR4_GPIO_Port GPIOB
+#define WaterLevel_Pin GPIO_PIN_5
+#define WaterLevel_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
