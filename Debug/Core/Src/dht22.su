@@ -1,0 +1,6 @@
+../Core/Src/dht22.c:12:6:Set_DHT22_Output	24	static
+../Core/Src/dht22.c:22:6:Set_DHT22_Iutput	24	static
+../Core/Src/dht22.c:31:9:DHT22_StartSignal	16	static
+../Core/Src/dht22.c:64:9:DHT22_Read	16	static
+../Core/Src/dht22.c:100:9:DHT22_GetTemperature	24	static
+../Core/Src/dht22.c:134:6:delay_us	16	static

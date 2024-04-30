@@ -10,6 +10,12 @@ c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.external
                               c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o (__libc_init_array)
 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
                               c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o (memset)
+c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+                              ./Core/Src/dht22.o (__aeabi_ui2f)
+c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
+                              ./Core/Src/dht22.o (__aeabi_fdiv)
+c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+                              ./Core/Src/dht22.o (__aeabi_f2uiz)
 
 Discarded input sections
 
@@ -221,6 +227,111 @@ Discarded input sections
  .debug_frame   0x0000000000000000       0x34 ./Core/Src/WaterSensor.o
  .ARM.attributes
                 0x0000000000000000       0x2d ./Core/Src/WaterSensor.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .group         0x0000000000000000        0xc ./Core/Src/dht22.o
+ .text          0x0000000000000000        0x0 ./Core/Src/dht22.o
+ .data          0x0000000000000000        0x0 ./Core/Src/dht22.o
+ .bss           0x0000000000000000        0x0 ./Core/Src/dht22.o
+ .bss.pMillis   0x0000000000000000        0x4 ./Core/Src/dht22.o
+ .bss.cMillis   0x0000000000000000        0x4 ./Core/Src/dht22.o
+ .text.Set_DHT22_Output
+                0x0000000000000000       0x3c ./Core/Src/dht22.o
+ .text.Set_DHT22_Iutput
+                0x0000000000000000       0x38 ./Core/Src/dht22.o
+ .text.DHT22_StartSignal
+                0x0000000000000000       0xbc ./Core/Src/dht22.o
+ .text.DHT22_Read
+                0x0000000000000000       0xf8 ./Core/Src/dht22.o
+ .text.DHT22_GetTemperature
+                0x0000000000000000       0xb8 ./Core/Src/dht22.o
+ .text.delay_us
+                0x0000000000000000       0x30 ./Core/Src/dht22.o
+ .debug_info    0x0000000000000000      0x92b ./Core/Src/dht22.o
+ .debug_abbrev  0x0000000000000000      0x245 ./Core/Src/dht22.o
+ .debug_aranges
+                0x0000000000000000       0x48 ./Core/Src/dht22.o
+ .debug_ranges  0x0000000000000000       0x38 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x1bc ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0xa6c ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x221 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x2e ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x8e ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x51 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x103 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x6a ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x1df ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x1c ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0xbd ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0xd23 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000     0xe09e ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x6d ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000     0x348d ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x174 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x5c ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x5bc ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x289 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x1cb ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x114 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x1b2 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x27 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x136 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x1bc ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x34 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x3c ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x57 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x87 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x240 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x287 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x140 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x8ed ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000      0x28e ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x83 ./Core/Src/dht22.o
+ .debug_macro   0x0000000000000000       0x10 ./Core/Src/dht22.o
+ .debug_line    0x0000000000000000      0x840 ./Core/Src/dht22.o
+ .debug_str     0x0000000000000000    0x853d1 ./Core/Src/dht22.o
+ .comment       0x0000000000000000       0x51 ./Core/Src/dht22.o
+ .debug_frame   0x0000000000000000       0xec ./Core/Src/dht22.o
+ .ARM.attributes
+                0x0000000000000000       0x2d ./Core/Src/dht22.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
@@ -2855,6 +2966,24 @@ Discarded input sections
  .text          0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
  .data          0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
  .bss           0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc_nano.a(lib_a-memset.o)
+ .text          0x0000000000000000      0x21c c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .data          0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .bss           0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .debug_frame   0x0000000000000000       0x4c c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .ARM.attributes
+                0x0000000000000000       0x1d c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .text          0x0000000000000000      0x2a0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
+ .data          0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
+ .bss           0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
+ .debug_frame   0x0000000000000000       0x38 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
+ .ARM.attributes
+                0x0000000000000000       0x1d c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
+ .text          0x0000000000000000       0x40 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+ .data          0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+ .bss           0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+ .debug_frame   0x0000000000000000       0x24 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+ .ARM.attributes
+                0x0000000000000000       0x1d c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
  .text          0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtend.o
  .data          0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtend.o
  .bss           0x0000000000000000        0x0 c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtend.o
@@ -2880,6 +3009,7 @@ LOAD c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD c:/st/stm32cubeide_1.12.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o
 LOAD ./Core/Src/IR.o
 LOAD ./Core/Src/WaterSensor.o
+LOAD ./Core/Src/dht22.o
 LOAD ./Core/Src/main.o
 LOAD ./Core/Src/stm32f1xx_hal_msp.o
 LOAD ./Core/Src/stm32f1xx_it.o

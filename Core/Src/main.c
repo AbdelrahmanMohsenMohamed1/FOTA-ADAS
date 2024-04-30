@@ -297,14 +297,6 @@ static void MX_TIM2_Init(void)
   {
     Error_Handler();
   }
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
-  {
-    Error_Handler();
-  }
   /* USER CODE BEGIN TIM2_Init 2 */
 
   /* USER CODE END TIM2_Init 2 */
@@ -399,11 +391,11 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, Motor1_INT2_Pin|Motor1_INT1_Pin|Motor2_INT1_Pin|Motor2_INT2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, Motor1_INT2_Pin|Motor1_INT1_Pin|Motor2_INT1_Pin|Motor3_INT2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, Motor3_INT1_Pin|Motor3_INT2_Pin|Motor4_INT1_Pin|Motor4_INT2_Pin
-                          |Ulta_Trigger1_Pin|DHT_Pin|WaterLevel_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, Ultra_Trigger4_Pin|Ultra_Trigger3_Pin|Ultra_Trigger2_Pin|Ulta_Trigger1_Pin
+                          |DHT_Pin|WaterLevel_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
@@ -412,17 +404,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Motor1_INT2_Pin Motor1_INT1_Pin Motor2_INT1_Pin Motor2_INT2_Pin */
-  GPIO_InitStruct.Pin = Motor1_INT2_Pin|Motor1_INT1_Pin|Motor2_INT1_Pin|Motor2_INT2_Pin;
+  /*Configure GPIO pins : Motor1_INT2_Pin Motor1_INT1_Pin Motor2_INT1_Pin Motor3_INT2_Pin */
+  GPIO_InitStruct.Pin = Motor1_INT2_Pin|Motor1_INT1_Pin|Motor2_INT1_Pin|Motor3_INT2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Motor3_INT1_Pin Motor3_INT2_Pin Motor4_INT1_Pin Motor4_INT2_Pin
-                           Ulta_Trigger1_Pin DHT_Pin WaterLevel_Pin */
-  GPIO_InitStruct.Pin = Motor3_INT1_Pin|Motor3_INT2_Pin|Motor4_INT1_Pin|Motor4_INT2_Pin
-                          |Ulta_Trigger1_Pin|DHT_Pin|WaterLevel_Pin;
+  /*Configure GPIO pins : Ultra_Trigger4_Pin Ultra_Trigger3_Pin Ultra_Trigger2_Pin Ulta_Trigger1_Pin
+                           DHT_Pin WaterLevel_Pin */
+  GPIO_InitStruct.Pin = Ultra_Trigger4_Pin|Ultra_Trigger3_Pin|Ultra_Trigger2_Pin|Ulta_Trigger1_Pin
+                          |DHT_Pin|WaterLevel_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
