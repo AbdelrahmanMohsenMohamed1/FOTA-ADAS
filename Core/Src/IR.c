@@ -1,10 +1,12 @@
 /*
- * IR_Program.c
+ * IR.c
  *
- *  Created on: Apr 27, 2024
- *      Author: Dell
+ *  Created on: Apr 30, 2024
+ *      Author: Abdelrahman
  */
-#include "IR_Interface.h"
+
+
+#include "IR.h"
 
 uint8_t IR1_u8ObstacleDetect(){
 	uint8_t obstacle_detected = HAL_GPIO_ReadPin(IR_PORT,IR_PIN_1);
