@@ -130,7 +130,7 @@ float ultrasonic1_voidGetDistance(void)
 	float distance;
 
 	HAL_GPIO_WritePin(TRIG_PORT_1, TRIG_PIN_1, GPIO_PIN_SET);
-	delay_us(10);
+	Udelay_us(10);
 	HAL_GPIO_WritePin(TRIG_PORT_1, TRIG_PIN_1, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC1);
 	while (flag < 2);
@@ -154,7 +154,7 @@ float ultrasonic2_voidGetDistance(void)
 	float distance;
 
 	HAL_GPIO_WritePin(TRIG_PORT_2, TRIG_PIN_2, GPIO_PIN_SET);
-	delay_us(10);
+	Udelay_us(10);
 	HAL_GPIO_WritePin(TRIG_PORT_2, TRIG_PIN_2, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC2);
 	while (flag < 2);
@@ -179,7 +179,7 @@ float ultrasonic3_voidGetDistance(void)
 
 
 	HAL_GPIO_WritePin(TRIG_PORT_3, TRIG_PIN_3, GPIO_PIN_SET);
-	delay_us(10);
+	Udelay_us(10);
 	HAL_GPIO_WritePin(TRIG_PORT_3, TRIG_PIN_3, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC3);
 	while (flag < 2);
@@ -202,7 +202,7 @@ float ultrasonic4_voidGetDistance(void)
 	float distance;
 
 	HAL_GPIO_WritePin(TRIG_PORT_4, TRIG_PIN_4, GPIO_PIN_SET);
-	delay_us(10);
+	Udelay_us(10);
 	HAL_GPIO_WritePin(TRIG_PORT_4, TRIG_PIN_4, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
 	while (flag < 2);
@@ -219,7 +219,7 @@ float ultrasonic4_voidGetDistance(void)
 	return distance;
 }
 
-void delay_us (uint16_t us)
+void Udelay_us (uint16_t us)
 {
 	__HAL_TIM_SET_COUNTER(&htim1, 0);
 	while (__HAL_TIM_GET_COUNTER(&htim1) < us);

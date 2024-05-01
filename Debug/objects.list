@@ -1,5 +1,8 @@
+"./Core/Src/Car_Program.o"
+"./Core/Src/Data_Manager.o"
 "./Core/Src/GSM_GPS.o"
 "./Core/Src/IR.o"
+"./Core/Src/Ultrasonic.o"
 "./Core/Src/WaterSensor.o"
 "./Core/Src/dht22.o"
 "./Core/Src/main.o"

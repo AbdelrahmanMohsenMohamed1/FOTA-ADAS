@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (10.3-2021.10)
 ################################################################################
 
 -include ../makefile.init
@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := FOTA-ADAS-STM32
+BUILD_ARTIFACT_NAME := FOTA_ADAS
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-FOTA-ADAS-STM32.elf \
+FOTA_ADAS.elf \
 
 MAP_FILES += \
-FOTA-ADAS-STM32.map \
+FOTA_ADAS.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-FOTA-ADAS-STM32.list \
+FOTA_ADAS.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: FOTA-ADAS-STM32.elf secondary-outputs
+main-build: FOTA_ADAS.elf secondary-outputs
 
 # Tool invocations
-FOTA-ADAS-STM32.elf FOTA-ADAS-STM32.map: $(OBJS) $(USER_OBJS) E:\workspacecube\FOTA-ADAS-STM32\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "FOTA-ADAS-STM32.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"E:\workspacecube\FOTA-ADAS-STM32\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FOTA-ADAS-STM32.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+FOTA_ADAS.elf FOTA_ADAS.map: $(OBJS) $(USER_OBJS) C:\Users\Abdelrahman\STM32CubeIDE\workspace_1.12.0\FOTA_ADAS\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "FOTA_ADAS.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Abdelrahman\STM32CubeIDE\workspace_1.12.0\FOTA_ADAS\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FOTA_ADAS.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-FOTA-ADAS-STM32.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "FOTA-ADAS-STM32.list"
+FOTA_ADAS.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "FOTA_ADAS.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) FOTA-ADAS-STM32.elf FOTA-ADAS-STM32.list FOTA-ADAS-STM32.map default.size.stdout
+	-$(RM) FOTA_ADAS.elf FOTA_ADAS.list FOTA_ADAS.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
