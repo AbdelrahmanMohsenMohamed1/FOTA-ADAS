@@ -270,9 +270,9 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
+  htim2.Init.Prescaler = 71;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 65535;
+  htim2.Init.Period = 100-1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
@@ -391,7 +391,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, Motor1_INT2_Pin|Motor1_INT1_Pin|Motor2_INT1_Pin|Motor3_INT2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, RearMotor_INT1_Pin|RearMotor_INT2_Pin|FrontMotor_INT1_Pin|FrontMotor_INT2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, Ultra_Trigger4_Pin|Ultra_Trigger3_Pin|Ultra_Trigger2_Pin|Ulta_Trigger1_Pin
@@ -404,8 +404,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Motor1_INT2_Pin Motor1_INT1_Pin Motor2_INT1_Pin Motor3_INT2_Pin */
-  GPIO_InitStruct.Pin = Motor1_INT2_Pin|Motor1_INT1_Pin|Motor2_INT1_Pin|Motor3_INT2_Pin;
+  /*Configure GPIO pins : RearMotor_INT1_Pin RearMotor_INT2_Pin FrontMotor_INT1_Pin FrontMotor_INT2_Pin */
+  GPIO_InitStruct.Pin = RearMotor_INT1_Pin|RearMotor_INT2_Pin|FrontMotor_INT1_Pin|FrontMotor_INT2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

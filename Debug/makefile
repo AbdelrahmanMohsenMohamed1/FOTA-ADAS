@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -60,8 +60,8 @@ all: main-build
 main-build: FOTA_ADAS.elf secondary-outputs
 
 # Tool invocations
-FOTA_ADAS.elf FOTA_ADAS.map: $(OBJS) $(USER_OBJS) C:\Users\Abdelrahman\STM32CubeIDE\workspace_1.12.0\FOTA_ADAS\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "FOTA_ADAS.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Abdelrahman\STM32CubeIDE\workspace_1.12.0\FOTA_ADAS\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FOTA_ADAS.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+FOTA_ADAS.elf FOTA_ADAS.map: $(OBJS) $(USER_OBJS) /Users/Amr/STM32CubeIDE/NewWorkSpace/FOTA_ADAS/STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "FOTA_ADAS.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/Users/Amr/STM32CubeIDE/NewWorkSpace/FOTA_ADAS/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FOTA_ADAS.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

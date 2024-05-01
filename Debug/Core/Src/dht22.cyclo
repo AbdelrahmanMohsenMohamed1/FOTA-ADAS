@@ -1,6 +1,6 @@
-dht22.c:12:6:Set_DHT22_Output	1
-dht22.c:22:6:Set_DHT22_Iutput	1
-dht22.c:31:9:DHT22_StartSignal	5
-dht22.c:64:9:DHT22_Read	7
-dht22.c:100:9:DHT22_GetTemperature	4
-dht22.c:134:6:delay_us	2
+../Core/Src/dht22.c:12:6:Set_DHT22_Output	1
+../Core/Src/dht22.c:22:6:Set_DHT22_Iutput	1
+../Core/Src/dht22.c:31:9:DHT22_StartSignal	5
+../Core/Src/dht22.c:64:9:DHT22_Read	7
+../Core/Src/dht22.c:100:9:DHT22_GetTemperature	4
+../Core/Src/dht22.c:134:6:delay_us	2
