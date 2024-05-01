@@ -173,7 +173,7 @@ void HAL_TIM_IC_MspInit(TIM_HandleTypeDef* htim_ic)
     PA10     ------> TIM1_CH3
     PA11     ------> TIM1_CH4
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11;
+    GPIO_InitStruct.Pin = TIM1_CH1_ICU_Pin|TIM1_CH2_ICU_Pin|TIM1_CH3_ICU_Pin|TIM1_CH4_ICU_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -221,7 +221,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
     PA0-WKUP     ------> TIM2_CH1
     PA1     ------> TIM2_CH2
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
+    GPIO_InitStruct.Pin = TIM2_CH1_PWM_Pin|TIM2_CH2_PWM_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -254,7 +254,7 @@ void HAL_TIM_IC_MspDeInit(TIM_HandleTypeDef* htim_ic)
     PA10     ------> TIM1_CH3
     PA11     ------> TIM1_CH4
     */
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11);
+    HAL_GPIO_DeInit(GPIOA, TIM1_CH1_ICU_Pin|TIM1_CH2_ICU_Pin|TIM1_CH3_ICU_Pin|TIM1_CH4_ICU_Pin);
 
   /* USER CODE BEGIN TIM1_MspDeInit 1 */
 

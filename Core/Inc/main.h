@@ -28,9 +28,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
-#include "dht22.h"
-#include "IR_config.h"
-#include "IR.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -61,6 +59,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define TIM2_CH1_PWM_Pin GPIO_PIN_0
+#define TIM2_CH1_PWM_GPIO_Port GPIOA
+#define TIM2_CH2_PWM_Pin GPIO_PIN_1
+#define TIM2_CH2_PWM_GPIO_Port GPIOA
 #define Motor1_INT2_Pin GPIO_PIN_4
 #define Motor1_INT2_GPIO_Port GPIOA
 #define Motor1_INT1_Pin GPIO_PIN_5
@@ -81,6 +83,14 @@ void Error_Handler(void);
 #define IR1_GPIO_Port GPIOB
 #define DHT_Pin GPIO_PIN_15
 #define DHT_GPIO_Port GPIOB
+#define TIM1_CH1_ICU_Pin GPIO_PIN_8
+#define TIM1_CH1_ICU_GPIO_Port GPIOA
+#define TIM1_CH2_ICU_Pin GPIO_PIN_9
+#define TIM1_CH2_ICU_GPIO_Port GPIOA
+#define TIM1_CH3_ICU_Pin GPIO_PIN_10
+#define TIM1_CH3_ICU_GPIO_Port GPIOA
+#define TIM1_CH4_ICU_Pin GPIO_PIN_11
+#define TIM1_CH4_ICU_GPIO_Port GPIOA
 #define IR2_Pin GPIO_PIN_15
 #define IR2_GPIO_Port GPIOA
 #define IR3_Pin GPIO_PIN_3
