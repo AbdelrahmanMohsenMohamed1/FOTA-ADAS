@@ -1,5 +1,4 @@
 "./Core/Src/IR.o"
-"./Core/Src/Motor.o"
 "./Core/Src/WaterSensor.o"
 "./Core/Src/dht22.o"
 "./Core/Src/main.o"

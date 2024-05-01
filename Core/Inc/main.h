@@ -28,7 +28,9 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
-
+#include "dht22.h"
+#include "IR_config.h"
+#include "IR.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -59,18 +61,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define RearMotor_PWM_Pin GPIO_PIN_0
-#define RearMotor_PWM_GPIO_Port GPIOA
-#define FrontMotor_PWM_Pin GPIO_PIN_1
-#define FrontMotor_PWM_GPIO_Port GPIOA
-#define RearMotor_INT1_Pin GPIO_PIN_4
-#define RearMotor_INT1_GPIO_Port GPIOA
-#define RearMotor_INT2_Pin GPIO_PIN_5
-#define RearMotor_INT2_GPIO_Port GPIOA
-#define FrontMotor_INT1_Pin GPIO_PIN_6
-#define FrontMotor_INT1_GPIO_Port GPIOA
-#define FrontMotor_INT2_Pin GPIO_PIN_7
-#define FrontMotor_INT2_GPIO_Port GPIOA
+#define Motor1_INT2_Pin GPIO_PIN_4
+#define Motor1_INT2_GPIO_Port GPIOA
+#define Motor1_INT1_Pin GPIO_PIN_5
+#define Motor1_INT1_GPIO_Port GPIOA
+#define Motor2_INT1_Pin GPIO_PIN_6
+#define Motor2_INT1_GPIO_Port GPIOA
+#define Motor3_INT2_Pin GPIO_PIN_7
+#define Motor3_INT2_GPIO_Port GPIOA
 #define Ultra_Trigger4_Pin GPIO_PIN_10
 #define Ultra_Trigger4_GPIO_Port GPIOB
 #define Ultra_Trigger3_Pin GPIO_PIN_11

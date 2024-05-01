@@ -1,7 +1,0 @@
-../Core/Src/Motor.c:10:6:Motor_Start	1
-../Core/Src/Motor.c:17:6:Motor_voidStop	1
-../Core/Src/Motor.c:31:6:Motor_SetSpeed	1
-../Core/Src/Motor.c:38:6:Motor_voidMoveForward	1
-../Core/Src/Motor.c:45:6:Motor_voidMoveBackward	1
-../Core/Src/Motor.c:51:6:Motor_voidTurnRight	1
-../Core/Src/Motor.c:61:6:Motor_voidTurnLeft	1
