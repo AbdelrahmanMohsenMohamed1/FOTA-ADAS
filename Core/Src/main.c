@@ -27,6 +27,7 @@
 #include "dht22.h"
 #include "IR.h"
 #include "WaterSensor.h"
+#include "Ultrasonic.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,7 +72,10 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+extern uint8_t Distance1;
+extern uint8_t Distance2;
+extern uint8_t Distance3;
+extern uint8_t Distance4;
 /* USER CODE END 0 */
 
 /**
