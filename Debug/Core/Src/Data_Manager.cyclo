@@ -1,0 +1,5 @@
+Data_Manager.c:14:6:Service_DataCollectAll	1
+Data_Manager.c:24:6:Service_DataCollectUltraReading	1
+Data_Manager.c:34:6:Service_DataCollectIRReading	1
+Data_Manager.c:44:6:Service_DataCollectDHTReading	1
+Data_Manager.c:54:6:Service_DataCollectWaterReading	1

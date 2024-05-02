@@ -21,7 +21,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "GSM_GPS.h"
+#include "Car_Interface.h"
+#include "Data_Manager.h"
+#include "dht22.h"
+#include "IR.h"
+#include "WaterSensor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

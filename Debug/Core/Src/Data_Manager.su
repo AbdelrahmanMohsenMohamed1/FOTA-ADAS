@@ -1,0 +1,5 @@
+../Core/Src/Data_Manager.c:14:6:Service_DataCollectAll	24	static
+../Core/Src/Data_Manager.c:24:6:Service_DataCollectUltraReading	24	static
+../Core/Src/Data_Manager.c:34:6:Service_DataCollectIRReading	24	static
+../Core/Src/Data_Manager.c:44:6:Service_DataCollectDHTReading	24	static
+../Core/Src/Data_Manager.c:54:6:Service_DataCollectWaterReading	24	static
