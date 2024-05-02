@@ -13,6 +13,7 @@
 #include "WaterSensor.h"
 #include "IR.h"
 #include "dht22.h"
+#include "Ultrasonic.h"
 
 typedef struct
 {
@@ -33,6 +34,9 @@ typedef struct
 
 	// DHT sensor temperature reading
 	uint8_t DHT_TempReading;        // Reading from the DHT temperature sensor
+
+	// Array of the location
+	uint8_t u8Location[50];
 
 } Data_Manager_t;
 
@@ -70,6 +74,13 @@ void Service_DataCollectDHTReading(Data_Manager_t DataManager);
  * @param DataManager The data manager structure to update with water sensor reading.
  */
 void Service_DataCollectWaterReading(Data_Manager_t DataManager);
+
+/**
+ * @brief Collects Location reading and updates the data manager.
+ *
+ * @param DataManager The data manager structure to update with Location reading.
+ */
+void Service_DataCollectLocationReading(Data_Manager_t DataManager);
 
 
 

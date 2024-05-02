@@ -55,3 +55,13 @@ void Service_DataCollectWaterReading(Data_Manager_t DataManager)
 {
 	// Implementation goes here
 }
+
+/**
+ * @brief Collects Location reading and updates the data manager.
+ *
+ * @param DataManager The data manager structure to update with Location reading.
+ */
+void Service_DataCollectLocationReading(Data_Manager_t DataManager)
+{
+	// Implementation goes here
+}
