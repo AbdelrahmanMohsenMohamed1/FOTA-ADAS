@@ -9,6 +9,7 @@ C_SRCS += \
 ../Core/Src/Data_Manager.c \
 ../Core/Src/GSM_GPS.c \
 ../Core/Src/IR.c \
+../Core/Src/Ultrasonic.c \
 ../Core/Src/WaterSensor.c \
 ../Core/Src/dht22.c \
 ../Core/Src/main.c \
@@ -23,6 +24,7 @@ OBJS += \
 ./Core/Src/Data_Manager.o \
 ./Core/Src/GSM_GPS.o \
 ./Core/Src/IR.o \
+./Core/Src/Ultrasonic.o \
 ./Core/Src/WaterSensor.o \
 ./Core/Src/dht22.o \
 ./Core/Src/main.o \
@@ -37,6 +39,7 @@ C_DEPS += \
 ./Core/Src/Data_Manager.d \
 ./Core/Src/GSM_GPS.d \
 ./Core/Src/IR.d \
+./Core/Src/Ultrasonic.d \
 ./Core/Src/WaterSensor.d \
 ./Core/Src/dht22.d \
 ./Core/Src/main.d \
@@ -54,7 +57,11 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
+<<<<<<< Updated upstream
 	-$(RM) ./Core/Src/Car_Program.cyclo ./Core/Src/Car_Program.d ./Core/Src/Car_Program.o ./Core/Src/Car_Program.su ./Core/Src/Data_Manager.cyclo ./Core/Src/Data_Manager.d ./Core/Src/Data_Manager.o ./Core/Src/Data_Manager.su ./Core/Src/GSM_GPS.cyclo ./Core/Src/GSM_GPS.d ./Core/Src/GSM_GPS.o ./Core/Src/GSM_GPS.su ./Core/Src/IR.cyclo ./Core/Src/IR.d ./Core/Src/IR.o ./Core/Src/IR.su ./Core/Src/WaterSensor.cyclo ./Core/Src/WaterSensor.d ./Core/Src/WaterSensor.o ./Core/Src/WaterSensor.su ./Core/Src/dht22.cyclo ./Core/Src/dht22.d ./Core/Src/dht22.o ./Core/Src/dht22.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f1xx_hal_msp.cyclo ./Core/Src/stm32f1xx_hal_msp.d ./Core/Src/stm32f1xx_hal_msp.o ./Core/Src/stm32f1xx_hal_msp.su ./Core/Src/stm32f1xx_it.cyclo ./Core/Src/stm32f1xx_it.d ./Core/Src/stm32f1xx_it.o ./Core/Src/stm32f1xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f1xx.cyclo ./Core/Src/system_stm32f1xx.d ./Core/Src/system_stm32f1xx.o ./Core/Src/system_stm32f1xx.su
+=======
+	-$(RM) ./Core/Src/Car_Program.cyclo ./Core/Src/Car_Program.d ./Core/Src/Car_Program.o ./Core/Src/Car_Program.su ./Core/Src/Data_Manager.cyclo ./Core/Src/Data_Manager.d ./Core/Src/Data_Manager.o ./Core/Src/Data_Manager.su ./Core/Src/GSM_GPS.cyclo ./Core/Src/GSM_GPS.d ./Core/Src/GSM_GPS.o ./Core/Src/GSM_GPS.su ./Core/Src/IR.cyclo ./Core/Src/IR.d ./Core/Src/IR.o ./Core/Src/IR.su ./Core/Src/Ultrasonic.cyclo ./Core/Src/Ultrasonic.d ./Core/Src/Ultrasonic.o ./Core/Src/Ultrasonic.su ./Core/Src/WaterSensor.cyclo ./Core/Src/WaterSensor.d ./Core/Src/WaterSensor.o ./Core/Src/WaterSensor.su ./Core/Src/dht22.cyclo ./Core/Src/dht22.d ./Core/Src/dht22.o ./Core/Src/dht22.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f1xx_hal_msp.cyclo ./Core/Src/stm32f1xx_hal_msp.d ./Core/Src/stm32f1xx_hal_msp.o ./Core/Src/stm32f1xx_hal_msp.su ./Core/Src/stm32f1xx_it.cyclo ./Core/Src/stm32f1xx_it.d ./Core/Src/stm32f1xx_it.o ./Core/Src/stm32f1xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f1xx.cyclo ./Core/Src/system_stm32f1xx.d ./Core/Src/system_stm32f1xx.o ./Core/Src/system_stm32f1xx.su
+>>>>>>> Stashed changes
 
 .PHONY: clean-Core-2f-Src
 

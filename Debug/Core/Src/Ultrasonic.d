@@ -1,5 +1,4 @@
-Core/Src/Car_Program.o: ../Core/Src/Car_Program.c \
- ../Core/Inc/Car_Interface.h ../Core/Inc/main.h \
+Core/Src/Ultrasonic.o: ../Core/Src/Ultrasonic.c ../Core/Inc/Ultrasonic.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -25,15 +24,9 @@ Core/Src/Car_Program.o: ../Core/Src/Car_Program.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
-<<<<<<< Updated upstream
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- ../Core/Inc/dht22.h ../Core/Inc/IR_config.h ../Core/Inc/IR.h \
- ../Core/Inc/IR_Config.h
-=======
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
->>>>>>> Stashed changes
-../Core/Inc/Car_Interface.h:
-../Core/Inc/main.h:
+ ../Core/Inc/Ultrasonic_Confg.h
+../Core/Inc/Ultrasonic.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:
@@ -60,10 +53,4 @@ Core/Src/Car_Program.o: ../Core/Src/Car_Program.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
-<<<<<<< Updated upstream
-../Core/Inc/dht22.h:
-../Core/Inc/IR_config.h:
-../Core/Inc/IR.h:
-../Core/Inc/IR_Config.h:
-=======
->>>>>>> Stashed changes
+../Core/Inc/Ultrasonic_Confg.h:
