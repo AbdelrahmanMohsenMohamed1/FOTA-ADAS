@@ -11,7 +11,7 @@
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx_hal_tim.h"
 
-void Udelay_us (uint16_t us);
+void delay(uint16_t us);
 void ultrasonic_voidInit(void);
 float ultrasonic1_voidGetDistance(void);
 float ultrasonic2_voidGetDistance(void);
