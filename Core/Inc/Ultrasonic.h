@@ -22,6 +22,10 @@
 #define TRIG_PIN_4 GPIO_PIN_10
 #define TRIG_PORT_4 GPIOB
 
+extern uint8_t UL_Distance1 ;
+extern uint8_t UL_Distance2 ;
+extern uint8_t UL_Distance3 ;
+extern uint8_t UL_Distance4 ;
 
 void delay (uint16_t time);
 void HCSR04_Read1 (void);
