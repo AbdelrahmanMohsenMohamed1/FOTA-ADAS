@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000f348  00000000  00000000  00020035  2**0
+ 12 .debug_info   0000f328  00000000  00000000  00020035  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001d05  00000000  00000000  0002f37d  2**0
+ 13 .debug_abbrev 00001cf6  00000000  00000000  0002f35d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000e68  00000000  00000000  00031088  2**3
+ 14 .debug_aranges 00000e68  00000000  00000000  00031058  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000dd8  00000000  00000000  00031ef0  2**3
+ 15 .debug_ranges 00000dd8  00000000  00000000  00031ec0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000017c3  00000000  00000000  00032cc8  2**0
+ 16 .debug_macro  000017bb  00000000  00000000  00032c98  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00010428  00000000  00000000  0003448b  2**0
+ 17 .debug_line   00010428  00000000  00000000  00034453  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000891ae  00000000  00000000  000448b3  2**0
+ 18 .debug_str    000891af  00000000  00000000  0004487b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000cda61  2**0
+ 19 .comment      00000050  00000000  00000000  000cda2a  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003e8c  00000000  00000000  000cdab4  2**2
+ 20 .debug_frame  00003e8c  00000000  00000000  000cda7c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -729,17 +729,17 @@ Disassembly of section .text:
 	...
 
 08000930 <HAL_TIM_IC_CaptureCallback>:
-uint8_t Is_First_Captured4 = 0;  // is the first value captured ?
-uint8_t UL_Distance4 = 0;
+
 
 // Let's write the callback function
 
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
  8000930:	b580      	push	{r7, lr}
  8000932:	b082      	sub	sp, #8
  8000934:	af00      	add	r7, sp, #0
  8000936:	6078      	str	r0, [r7, #4]
-	if ((htim == &htim1) && htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1) // if the interrupt source is channel1
+	if (   (htim == &htim1)  && htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)  // if the interrupt source is channel1
  8000938:	687b      	ldr	r3, [r7, #4]
  800093a:	4a6b      	ldr	r2, [pc, #428]	; (8000ae8 <HAL_TIM_IC_CaptureCallback+0x1b8>)
  800093c:	4293      	cmp	r3, r2
@@ -748,13 +748,13 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000944:	7f1b      	ldrb	r3, [r3, #28]
  8000946:	2b01      	cmp	r3, #1
  8000948:	f040 8083 	bne.w	8000a52 <HAL_TIM_IC_CaptureCallback+0x122>
-			{
-		if (Is_First_Captured1 == 0) // if the first value is not captured
+	{
+		if (Is_First_Captured1==0) // if the first value is not captured
  800094c:	4b67      	ldr	r3, [pc, #412]	; (8000aec <HAL_TIM_IC_CaptureCallback+0x1bc>)
  800094e:	781b      	ldrb	r3, [r3, #0]
  8000950:	2b00      	cmp	r3, #0
  8000952:	d11a      	bne.n	800098a <HAL_TIM_IC_CaptureCallback+0x5a>
-				{
+		{
 			IC1_Val1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1); // read the first value
  8000954:	2100      	movs	r1, #0
  8000956:	6878      	ldr	r0, [r7, #4]
@@ -767,7 +767,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000964:	2201      	movs	r2, #1
  8000966:	701a      	strb	r2, [r3, #0]
 			// Now change the polarity to falling edge
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1,
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_FALLING);
  8000968:	687b      	ldr	r3, [r7, #4]
  800096a:	681b      	ldr	r3, [r3, #0]
  800096c:	6a1a      	ldr	r2, [r3, #32]
@@ -783,16 +783,15 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000982:	f042 0202 	orr.w	r2, r2, #2
  8000986:	621a      	str	r2, [r3, #32]
  8000988:	e063      	b.n	8000a52 <HAL_TIM_IC_CaptureCallback+0x122>
-					TIM_INPUTCHANNELPOLARITY_FALLING);
 		}
 
-		else if (Is_First_Captured1 == 1)   // if the first is already captured
+		else if (Is_First_Captured1==1)   // if the first is already captured
  800098a:	4b58      	ldr	r3, [pc, #352]	; (8000aec <HAL_TIM_IC_CaptureCallback+0x1bc>)
  800098c:	781b      	ldrb	r3, [r3, #0]
  800098e:	2b01      	cmp	r3, #1
  8000990:	d15f      	bne.n	8000a52 <HAL_TIM_IC_CaptureCallback+0x122>
-				{
-			IC1_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1); // read second value
+		{
+			IC1_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);  // read second value
  8000992:	2100      	movs	r1, #0
  8000994:	6878      	ldr	r0, [r7, #4]
  8000996:	f002 fb71 	bl	800307c <HAL_TIM_ReadCapturedValue>
@@ -805,14 +804,15 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  80009a4:	2200      	movs	r2, #0
  80009a6:	625a      	str	r2, [r3, #36]	; 0x24
 
-			if (IC1_Val2 > IC1_Val1) {
+			if (IC1_Val2 > IC1_Val1)
  80009a8:	4b52      	ldr	r3, [pc, #328]	; (8000af4 <HAL_TIM_IC_CaptureCallback+0x1c4>)
  80009aa:	681a      	ldr	r2, [r3, #0]
  80009ac:	4b50      	ldr	r3, [pc, #320]	; (8000af0 <HAL_TIM_IC_CaptureCallback+0x1c0>)
  80009ae:	681b      	ldr	r3, [r3, #0]
  80009b0:	429a      	cmp	r2, r3
  80009b2:	d907      	bls.n	80009c4 <HAL_TIM_IC_CaptureCallback+0x94>
-				Difference1 = IC1_Val2 - IC1_Val1;
+			{
+				Difference1 = IC1_Val2-IC1_Val1;
  80009b4:	4b4f      	ldr	r3, [pc, #316]	; (8000af4 <HAL_TIM_IC_CaptureCallback+0x1c4>)
  80009b6:	681a      	ldr	r2, [r3, #0]
  80009b8:	4b4d      	ldr	r3, [pc, #308]	; (8000af0 <HAL_TIM_IC_CaptureCallback+0x1c0>)
@@ -823,13 +823,14 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  80009c2:	e00f      	b.n	80009e4 <HAL_TIM_IC_CaptureCallback+0xb4>
 			}
 
-			else if (IC1_Val1 > IC1_Val2) {
+			else if (IC1_Val1 > IC1_Val2)
  80009c4:	4b4a      	ldr	r3, [pc, #296]	; (8000af0 <HAL_TIM_IC_CaptureCallback+0x1c0>)
  80009c6:	681a      	ldr	r2, [r3, #0]
  80009c8:	4b4a      	ldr	r3, [pc, #296]	; (8000af4 <HAL_TIM_IC_CaptureCallback+0x1c4>)
  80009ca:	681b      	ldr	r3, [r3, #0]
  80009cc:	429a      	cmp	r2, r3
  80009ce:	d909      	bls.n	80009e4 <HAL_TIM_IC_CaptureCallback+0xb4>
+			{
 				Difference1 = (0xffff - IC1_Val1) + IC1_Val2;
  80009d0:	4b48      	ldr	r3, [pc, #288]	; (8000af4 <HAL_TIM_IC_CaptureCallback+0x1c4>)
  80009d2:	681a      	ldr	r2, [r3, #0]
@@ -842,7 +843,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  80009e2:	6013      	str	r3, [r2, #0]
 			}
 
-			UL_Distance1 = Difference1 * .034 / 2;
+			Distance1 = Difference1 * .034/2;
  80009e4:	4b44      	ldr	r3, [pc, #272]	; (8000af8 <HAL_TIM_IC_CaptureCallback+0x1c8>)
  80009e6:	681b      	ldr	r3, [r3, #0]
  80009e8:	4618      	mov	r0, r3
@@ -872,7 +873,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000a24:	701a      	strb	r2, [r3, #0]
 
 			// set polarity to rising edge
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1,
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_RISING);
  8000a26:	687b      	ldr	r3, [r7, #4]
  8000a28:	681b      	ldr	r3, [r3, #0]
  8000a2a:	6a1a      	ldr	r2, [r3, #32]
@@ -886,7 +887,6 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000a3c:	681b      	ldr	r3, [r3, #0]
  8000a3e:	6a12      	ldr	r2, [r2, #32]
  8000a40:	621a      	str	r2, [r3, #32]
-					TIM_INPUTCHANNELPOLARITY_RISING);
 			__HAL_TIM_DISABLE_IT(&htim1, TIM_IT_CC1);
  8000a42:	4b29      	ldr	r3, [pc, #164]	; (8000ae8 <HAL_TIM_IC_CaptureCallback+0x1b8>)
  8000a44:	681b      	ldr	r3, [r3, #0]
@@ -898,7 +898,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
 		}
 	}
 
-	if ((htim == &htim1) && htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2) // if the interrupt source is channel1
+	if ((htim == &htim1)  && htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2)  // if the interrupt source is channel1
  8000a52:	687b      	ldr	r3, [r7, #4]
  8000a54:	4a24      	ldr	r2, [pc, #144]	; (8000ae8 <HAL_TIM_IC_CaptureCallback+0x1b8>)
  8000a56:	4293      	cmp	r3, r2
@@ -907,13 +907,13 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000a5e:	7f1b      	ldrb	r3, [r3, #28]
  8000a60:	2b02      	cmp	r3, #2
  8000a62:	f040 809c 	bne.w	8000b9e <HAL_TIM_IC_CaptureCallback+0x26e>
-			{
-		if (Is_First_Captured2 == 0) // if the first value is not captured
+	{
+		if (Is_First_Captured2==0) // if the first value is not captured
  8000a66:	4b26      	ldr	r3, [pc, #152]	; (8000b00 <HAL_TIM_IC_CaptureCallback+0x1d0>)
  8000a68:	781b      	ldrb	r3, [r3, #0]
  8000a6a:	2b00      	cmp	r3, #0
  8000a6c:	d11a      	bne.n	8000aa4 <HAL_TIM_IC_CaptureCallback+0x174>
-				{
+		{
 			IC2_Val1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2); // read the first value
  8000a6e:	2104      	movs	r1, #4
  8000a70:	6878      	ldr	r0, [r7, #4]
@@ -926,7 +926,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000a7e:	2201      	movs	r2, #1
  8000a80:	701a      	strb	r2, [r3, #0]
 			// Now change the polarity to falling edge
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_2,
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_2, TIM_INPUTCHANNELPOLARITY_FALLING);
  8000a82:	687b      	ldr	r3, [r7, #4]
  8000a84:	681b      	ldr	r3, [r3, #0]
  8000a86:	6a1a      	ldr	r2, [r3, #32]
@@ -942,16 +942,15 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000a9c:	f042 0220 	orr.w	r2, r2, #32
  8000aa0:	621a      	str	r2, [r3, #32]
  8000aa2:	e07c      	b.n	8000b9e <HAL_TIM_IC_CaptureCallback+0x26e>
-					TIM_INPUTCHANNELPOLARITY_FALLING);
 		}
 
-		else if (Is_First_Captured2 == 1)   // if the first is already captured
+		else if (Is_First_Captured2==1)   // if the first is already captured
  8000aa4:	4b16      	ldr	r3, [pc, #88]	; (8000b00 <HAL_TIM_IC_CaptureCallback+0x1d0>)
  8000aa6:	781b      	ldrb	r3, [r3, #0]
  8000aa8:	2b01      	cmp	r3, #1
  8000aaa:	d178      	bne.n	8000b9e <HAL_TIM_IC_CaptureCallback+0x26e>
-				{
-			IC2_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2); // read second value
+		{
+			IC2_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);  // read second value
  8000aac:	2104      	movs	r1, #4
  8000aae:	6878      	ldr	r0, [r7, #4]
  8000ab0:	f002 fae4 	bl	800307c <HAL_TIM_ReadCapturedValue>
@@ -964,14 +963,15 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000abe:	2200      	movs	r2, #0
  8000ac0:	625a      	str	r2, [r3, #36]	; 0x24
 
-			if (IC2_Val2 > IC2_Val1) {
+			if (IC2_Val2 > IC2_Val1)
  8000ac2:	4b11      	ldr	r3, [pc, #68]	; (8000b08 <HAL_TIM_IC_CaptureCallback+0x1d8>)
  8000ac4:	681a      	ldr	r2, [r3, #0]
  8000ac6:	4b0f      	ldr	r3, [pc, #60]	; (8000b04 <HAL_TIM_IC_CaptureCallback+0x1d4>)
  8000ac8:	681b      	ldr	r3, [r3, #0]
  8000aca:	429a      	cmp	r2, r3
  8000acc:	d920      	bls.n	8000b10 <HAL_TIM_IC_CaptureCallback+0x1e0>
-				Difference2 = IC2_Val2 - IC2_Val1;
+			{
+				Difference2 = IC2_Val2-IC2_Val1;
  8000ace:	4b0e      	ldr	r3, [pc, #56]	; (8000b08 <HAL_TIM_IC_CaptureCallback+0x1d8>)
  8000ad0:	681a      	ldr	r2, [r3, #0]
  8000ad2:	4b0c      	ldr	r3, [pc, #48]	; (8000b04 <HAL_TIM_IC_CaptureCallback+0x1d4>)
@@ -995,13 +995,14 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000b0c:	20000040 	.word	0x20000040
 			}
 
-			else if (IC2_Val1 > IC2_Val2) {
+			else if (IC2_Val1 > IC2_Val2)
  8000b10:	4b8d      	ldr	r3, [pc, #564]	; (8000d48 <HAL_TIM_IC_CaptureCallback+0x418>)
  8000b12:	681a      	ldr	r2, [r3, #0]
  8000b14:	4b8d      	ldr	r3, [pc, #564]	; (8000d4c <HAL_TIM_IC_CaptureCallback+0x41c>)
  8000b16:	681b      	ldr	r3, [r3, #0]
  8000b18:	429a      	cmp	r2, r3
  8000b1a:	d909      	bls.n	8000b30 <HAL_TIM_IC_CaptureCallback+0x200>
+			{
 				Difference2 = (0xffff - IC2_Val1) + IC2_Val2;
  8000b1c:	4b8b      	ldr	r3, [pc, #556]	; (8000d4c <HAL_TIM_IC_CaptureCallback+0x41c>)
  8000b1e:	681a      	ldr	r2, [r3, #0]
@@ -1014,7 +1015,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000b2e:	6013      	str	r3, [r2, #0]
 			}
 
-			UL_Distance2 = Difference2 * .034 / 2;
+			Distance2 = Difference2 * .034/2;
  8000b30:	4b87      	ldr	r3, [pc, #540]	; (8000d50 <HAL_TIM_IC_CaptureCallback+0x420>)
  8000b32:	681b      	ldr	r3, [r3, #0]
  8000b34:	4618      	mov	r0, r3
@@ -1044,7 +1045,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000b70:	701a      	strb	r2, [r3, #0]
 
 			// set polarity to rising edge
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_2,
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_2, TIM_INPUTCHANNELPOLARITY_RISING);
  8000b72:	687b      	ldr	r3, [r7, #4]
  8000b74:	681b      	ldr	r3, [r3, #0]
  8000b76:	6a1a      	ldr	r2, [r3, #32]
@@ -1058,7 +1059,6 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000b88:	681b      	ldr	r3, [r3, #0]
  8000b8a:	6a12      	ldr	r2, [r2, #32]
  8000b8c:	621a      	str	r2, [r3, #32]
-					TIM_INPUTCHANNELPOLARITY_RISING);
 			__HAL_TIM_DISABLE_IT(&htim1, TIM_IT_CC2);
  8000b8e:	4b73      	ldr	r3, [pc, #460]	; (8000d5c <HAL_TIM_IC_CaptureCallback+0x42c>)
  8000b90:	681b      	ldr	r3, [r3, #0]
@@ -1070,7 +1070,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
 		}
 	}
 
-	if ((htim == &htim1) && htim->Channel == HAL_TIM_ACTIVE_CHANNEL_3) // if the interrupt source is channel1
+	if ((htim == &htim1)  && htim->Channel == HAL_TIM_ACTIVE_CHANNEL_3)  // if the interrupt source is channel1
  8000b9e:	687b      	ldr	r3, [r7, #4]
  8000ba0:	4a6e      	ldr	r2, [pc, #440]	; (8000d5c <HAL_TIM_IC_CaptureCallback+0x42c>)
  8000ba2:	4293      	cmp	r3, r2
@@ -1079,13 +1079,13 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000baa:	7f1b      	ldrb	r3, [r3, #28]
  8000bac:	2b04      	cmp	r3, #4
  8000bae:	f040 8083 	bne.w	8000cb8 <HAL_TIM_IC_CaptureCallback+0x388>
-			{
-		if (Is_First_Captured3 == 0) // if the first value is not captured
+	{
+		if (Is_First_Captured3==0) // if the first value is not captured
  8000bb2:	4b6b      	ldr	r3, [pc, #428]	; (8000d60 <HAL_TIM_IC_CaptureCallback+0x430>)
  8000bb4:	781b      	ldrb	r3, [r3, #0]
  8000bb6:	2b00      	cmp	r3, #0
  8000bb8:	d11a      	bne.n	8000bf0 <HAL_TIM_IC_CaptureCallback+0x2c0>
-				{
+		{
 			IC3_Val1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3); // read the first value
  8000bba:	2108      	movs	r1, #8
  8000bbc:	6878      	ldr	r0, [r7, #4]
@@ -1098,7 +1098,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000bca:	2201      	movs	r2, #1
  8000bcc:	701a      	strb	r2, [r3, #0]
 			// Now change the polarity to falling edge
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_3,
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_3, TIM_INPUTCHANNELPOLARITY_FALLING);
  8000bce:	687b      	ldr	r3, [r7, #4]
  8000bd0:	681b      	ldr	r3, [r3, #0]
  8000bd2:	6a1a      	ldr	r2, [r3, #32]
@@ -1114,16 +1114,15 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000be8:	f442 7200 	orr.w	r2, r2, #512	; 0x200
  8000bec:	621a      	str	r2, [r3, #32]
  8000bee:	e063      	b.n	8000cb8 <HAL_TIM_IC_CaptureCallback+0x388>
-					TIM_INPUTCHANNELPOLARITY_FALLING);
 		}
 
-		else if (Is_First_Captured3 == 1)   // if the first is already captured
+		else if (Is_First_Captured3==1)   // if the first is already captured
  8000bf0:	4b5b      	ldr	r3, [pc, #364]	; (8000d60 <HAL_TIM_IC_CaptureCallback+0x430>)
  8000bf2:	781b      	ldrb	r3, [r3, #0]
  8000bf4:	2b01      	cmp	r3, #1
  8000bf6:	d15f      	bne.n	8000cb8 <HAL_TIM_IC_CaptureCallback+0x388>
-				{
-			IC3_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3); // read second value
+		{
+			IC3_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3);  // read second value
  8000bf8:	2108      	movs	r1, #8
  8000bfa:	6878      	ldr	r0, [r7, #4]
  8000bfc:	f002 fa3e 	bl	800307c <HAL_TIM_ReadCapturedValue>
@@ -1136,14 +1135,15 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000c0a:	2200      	movs	r2, #0
  8000c0c:	625a      	str	r2, [r3, #36]	; 0x24
 
-			if (IC3_Val2 > IC3_Val1) {
+			if (IC3_Val2 > IC3_Val1)
  8000c0e:	4b56      	ldr	r3, [pc, #344]	; (8000d68 <HAL_TIM_IC_CaptureCallback+0x438>)
  8000c10:	681a      	ldr	r2, [r3, #0]
  8000c12:	4b54      	ldr	r3, [pc, #336]	; (8000d64 <HAL_TIM_IC_CaptureCallback+0x434>)
  8000c14:	681b      	ldr	r3, [r3, #0]
  8000c16:	429a      	cmp	r2, r3
  8000c18:	d907      	bls.n	8000c2a <HAL_TIM_IC_CaptureCallback+0x2fa>
-				Difference3 = IC3_Val2 - IC3_Val1;
+			{
+				Difference3 = IC3_Val2-IC3_Val1;
  8000c1a:	4b53      	ldr	r3, [pc, #332]	; (8000d68 <HAL_TIM_IC_CaptureCallback+0x438>)
  8000c1c:	681a      	ldr	r2, [r3, #0]
  8000c1e:	4b51      	ldr	r3, [pc, #324]	; (8000d64 <HAL_TIM_IC_CaptureCallback+0x434>)
@@ -1154,13 +1154,14 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000c28:	e00f      	b.n	8000c4a <HAL_TIM_IC_CaptureCallback+0x31a>
 			}
 
-			else if (IC3_Val1 > IC3_Val2) {
+			else if (IC3_Val1 > IC3_Val2)
  8000c2a:	4b4e      	ldr	r3, [pc, #312]	; (8000d64 <HAL_TIM_IC_CaptureCallback+0x434>)
  8000c2c:	681a      	ldr	r2, [r3, #0]
  8000c2e:	4b4e      	ldr	r3, [pc, #312]	; (8000d68 <HAL_TIM_IC_CaptureCallback+0x438>)
  8000c30:	681b      	ldr	r3, [r3, #0]
  8000c32:	429a      	cmp	r2, r3
  8000c34:	d909      	bls.n	8000c4a <HAL_TIM_IC_CaptureCallback+0x31a>
+			{
 				Difference3 = (0xffff - IC3_Val1) + IC3_Val2;
  8000c36:	4b4c      	ldr	r3, [pc, #304]	; (8000d68 <HAL_TIM_IC_CaptureCallback+0x438>)
  8000c38:	681a      	ldr	r2, [r3, #0]
@@ -1173,7 +1174,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000c48:	6013      	str	r3, [r2, #0]
 			}
 
-			UL_Distance3 = Difference3 * .034 / 2;
+			Distance3 = Difference3 * .034/2;
  8000c4a:	4b48      	ldr	r3, [pc, #288]	; (8000d6c <HAL_TIM_IC_CaptureCallback+0x43c>)
  8000c4c:	681b      	ldr	r3, [r3, #0]
  8000c4e:	4618      	mov	r0, r3
@@ -1203,7 +1204,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000c8a:	701a      	strb	r2, [r3, #0]
 
 			// set polarity to rising edge
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_3,
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_3, TIM_INPUTCHANNELPOLARITY_RISING);
  8000c8c:	687b      	ldr	r3, [r7, #4]
  8000c8e:	681b      	ldr	r3, [r3, #0]
  8000c90:	6a1a      	ldr	r2, [r3, #32]
@@ -1217,7 +1218,6 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000ca2:	681b      	ldr	r3, [r3, #0]
  8000ca4:	6a12      	ldr	r2, [r2, #32]
  8000ca6:	621a      	str	r2, [r3, #32]
-					TIM_INPUTCHANNELPOLARITY_RISING);
 			__HAL_TIM_DISABLE_IT(&htim1, TIM_IT_CC3);
  8000ca8:	4b2c      	ldr	r3, [pc, #176]	; (8000d5c <HAL_TIM_IC_CaptureCallback+0x42c>)
  8000caa:	681b      	ldr	r3, [r3, #0]
@@ -1226,21 +1226,23 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000cb0:	681b      	ldr	r3, [r3, #0]
  8000cb2:	f022 0208 	bic.w	r2, r2, #8
  8000cb6:	60da      	str	r2, [r3, #12]
-		}
 	}
 
-	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_4) // if the interrupt source is channel1
+
+
+
+	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_4)  // if the interrupt source is channel1
  8000cb8:	687b      	ldr	r3, [r7, #4]
  8000cba:	7f1b      	ldrb	r3, [r3, #28]
  8000cbc:	2b08      	cmp	r3, #8
  8000cbe:	f040 80a8 	bne.w	8000e12 <HAL_TIM_IC_CaptureCallback+0x4e2>
-			{
-		if (Is_First_Captured4 == 0) // if the first value is not captured
+	{
+		if (Is_First_Captured4==0) // if the first value is not captured
  8000cc2:	4b2c      	ldr	r3, [pc, #176]	; (8000d74 <HAL_TIM_IC_CaptureCallback+0x444>)
  8000cc4:	781b      	ldrb	r3, [r3, #0]
  8000cc6:	2b00      	cmp	r3, #0
  8000cc8:	d11a      	bne.n	8000d00 <HAL_TIM_IC_CaptureCallback+0x3d0>
-				{
+		{
 			IC4_Val1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4); // read the first value
  8000cca:	210c      	movs	r1, #12
  8000ccc:	6878      	ldr	r0, [r7, #4]
@@ -1253,7 +1255,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000cda:	2201      	movs	r2, #1
  8000cdc:	701a      	strb	r2, [r3, #0]
 			// Now change the polarity to falling edge
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_4,
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_4, TIM_INPUTCHANNELPOLARITY_FALLING);
  8000cde:	687b      	ldr	r3, [r7, #4]
  8000ce0:	681b      	ldr	r3, [r3, #0]
  8000ce2:	6a1a      	ldr	r2, [r3, #32]
@@ -1268,19 +1270,19 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000cf6:	681b      	ldr	r3, [r3, #0]
  8000cf8:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
  8000cfc:	621a      	str	r2, [r3, #32]
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_4,
-					TIM_INPUTCHANNELPOLARITY_RISING);
+			// set polarity to rising edge
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_4, TIM_INPUTCHANNELPOLARITY_RISING);
 			__HAL_TIM_DISABLE_IT(&htim1, TIM_IT_CC4);
 		}
 	}
 }
  8000cfe:	e088      	b.n	8000e12 <HAL_TIM_IC_CaptureCallback+0x4e2>
-		else if (Is_First_Captured4 == 1)   // if the first is already captured
+		else if (Is_First_Captured4==1)   // if the first is already captured
  8000d00:	4b1c      	ldr	r3, [pc, #112]	; (8000d74 <HAL_TIM_IC_CaptureCallback+0x444>)
  8000d02:	781b      	ldrb	r3, [r3, #0]
  8000d04:	2b01      	cmp	r3, #1
  8000d06:	f040 8084 	bne.w	8000e12 <HAL_TIM_IC_CaptureCallback+0x4e2>
-			IC4_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4); // read second value
+			IC4_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4);  // read second value
  8000d0a:	210c      	movs	r1, #12
  8000d0c:	6878      	ldr	r0, [r7, #4]
  8000d0e:	f002 f9b5 	bl	800307c <HAL_TIM_ReadCapturedValue>
@@ -1292,14 +1294,14 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000d1a:	681b      	ldr	r3, [r3, #0]
  8000d1c:	2200      	movs	r2, #0
  8000d1e:	625a      	str	r2, [r3, #36]	; 0x24
-			if (IC4_Val2 > IC4_Val1) {
+			if (IC4_Val2 > IC4_Val1)
  8000d20:	4b16      	ldr	r3, [pc, #88]	; (8000d7c <HAL_TIM_IC_CaptureCallback+0x44c>)
  8000d22:	681a      	ldr	r2, [r3, #0]
  8000d24:	4b14      	ldr	r3, [pc, #80]	; (8000d78 <HAL_TIM_IC_CaptureCallback+0x448>)
  8000d26:	681b      	ldr	r3, [r3, #0]
  8000d28:	429a      	cmp	r2, r3
  8000d2a:	d92b      	bls.n	8000d84 <HAL_TIM_IC_CaptureCallback+0x454>
-				Difference4 = IC4_Val2 - IC4_Val1;
+				Difference4 = IC4_Val2-IC4_Val1;
  8000d2c:	4b13      	ldr	r3, [pc, #76]	; (8000d7c <HAL_TIM_IC_CaptureCallback+0x44c>)
  8000d2e:	681a      	ldr	r2, [r3, #0]
  8000d30:	4b11      	ldr	r3, [pc, #68]	; (8000d78 <HAL_TIM_IC_CaptureCallback+0x448>)
@@ -1326,7 +1328,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000d78:	20000058 	.word	0x20000058
  8000d7c:	2000005c 	.word	0x2000005c
  8000d80:	20000060 	.word	0x20000060
-			else if (IC4_Val1 > IC4_Val2) {
+			else if (IC4_Val1 > IC4_Val2)
  8000d84:	4b28      	ldr	r3, [pc, #160]	; (8000e28 <HAL_TIM_IC_CaptureCallback+0x4f8>)
  8000d86:	681a      	ldr	r2, [r3, #0]
  8000d88:	4b28      	ldr	r3, [pc, #160]	; (8000e2c <HAL_TIM_IC_CaptureCallback+0x4fc>)
@@ -1343,7 +1345,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000d9e:	33ff      	adds	r3, #255	; 0xff
  8000da0:	4a23      	ldr	r2, [pc, #140]	; (8000e30 <HAL_TIM_IC_CaptureCallback+0x500>)
  8000da2:	6013      	str	r3, [r2, #0]
-			UL_Distance4 = Difference4 * .034 / 2;
+			Distance4 = Difference4 * .034/2;
  8000da4:	4b22      	ldr	r3, [pc, #136]	; (8000e30 <HAL_TIM_IC_CaptureCallback+0x500>)
  8000da6:	681b      	ldr	r3, [r3, #0]
  8000da8:	4618      	mov	r0, r3
@@ -1371,7 +1373,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
  8000de0:	4b15      	ldr	r3, [pc, #84]	; (8000e38 <HAL_TIM_IC_CaptureCallback+0x508>)
  8000de2:	2200      	movs	r2, #0
  8000de4:	701a      	strb	r2, [r3, #0]
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_4,
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_4, TIM_INPUTCHANNELPOLARITY_RISING);
  8000de6:	687b      	ldr	r3, [r7, #4]
  8000de8:	681b      	ldr	r3, [r3, #0]
  8000dea:	6a1a      	ldr	r2, [r3, #32]

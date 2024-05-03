@@ -1,10 +1,7 @@
-Motor.c:85:15:Motor_frontSetPWR	2
-Motor.c:97:15:Motor_frontMoveRight	1
-Motor.c:108:15:Motor_frontMoveLeft	1
-Motor.c:118:15:Motor_frontStop	1
-Motor.c:129:15:Motor_frontStart	1
-Motor.c:135:15:Motor_rearSetPWR	2
-Motor.c:146:15:Motor_rearMoveForward	1
-Motor.c:157:15:Motor_rearMoveBackward	1
-Motor.c:168:15:Motor_rearStop	1
-Motor.c:179:15:Motor_rearStart	1
+Motor.c:23:6:Motor_Start	1
+Motor.c:30:6:Motor_voidStop	1
+Motor.c:44:6:Motor_SetSpeed	1
+Motor.c:51:6:Motor_voidMoveForward	1
+Motor.c:58:6:Motor_voidMoveBackward	1
+Motor.c:64:6:Motor_voidTurnRight	1
+Motor.c:74:6:Motor_voidTurnLeft	1
