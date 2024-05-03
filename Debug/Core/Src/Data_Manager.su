@@ -1,6 +1,6 @@
-../Core/Src/Data_Manager.c:14:6:Service_DataCollectAll	8	static
-../Core/Src/Data_Manager.c:24:6:Service_DataCollectUltraReading	8	static
-../Core/Src/Data_Manager.c:34:6:Service_DataCollectIRReading	8	static
-../Core/Src/Data_Manager.c:44:6:Service_DataCollectDHTReading	8	static
-../Core/Src/Data_Manager.c:54:6:Service_DataCollectWaterReading	8	static
-../Core/Src/Data_Manager.c:64:6:Service_DataCollectLocationReading	8	static
+../Core/Src/Data_Manager.c:14:19:Service_DataCollectAll	24	static
+../Core/Src/Data_Manager.c:42:19:Service_DataCollectUltraReading	24	static
+../Core/Src/Data_Manager.c:62:19:Service_DataCollectIRReading	24	static
+../Core/Src/Data_Manager.c:83:19:Service_DataCollectDHTReading	24	static
+../Core/Src/Data_Manager.c:101:19:Service_DataCollectWaterReading	24	static
+../Core/Src/Data_Manager.c:118:19:Service_DataCollectLocationReading	24	static

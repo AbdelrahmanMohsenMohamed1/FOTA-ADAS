@@ -1,6 +1,6 @@
-Data_Manager.c:14:6:Service_DataCollectAll	1
-Data_Manager.c:24:6:Service_DataCollectUltraReading	1
-Data_Manager.c:34:6:Service_DataCollectIRReading	1
-Data_Manager.c:44:6:Service_DataCollectDHTReading	1
-Data_Manager.c:54:6:Service_DataCollectWaterReading	1
-Data_Manager.c:64:6:Service_DataCollectLocationReading	1
+Data_Manager.c:14:19:Service_DataCollectAll	2
+Data_Manager.c:42:19:Service_DataCollectUltraReading	2
+Data_Manager.c:62:19:Service_DataCollectIRReading	2
+Data_Manager.c:83:19:Service_DataCollectDHTReading	2
+Data_Manager.c:101:19:Service_DataCollectWaterReading	2
+Data_Manager.c:118:19:Service_DataCollectLocationReading	2

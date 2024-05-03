@@ -1,7 +1,10 @@
-../Core/Src/Motor.c:23:6:Motor_Start	8	static
-../Core/Src/Motor.c:30:6:Motor_voidStop	8	static
-../Core/Src/Motor.c:44:6:Motor_SetSpeed	16	static
-../Core/Src/Motor.c:51:6:Motor_voidMoveForward	8	static
-../Core/Src/Motor.c:58:6:Motor_voidMoveBackward	8	static
-../Core/Src/Motor.c:64:6:Motor_voidTurnRight	8	static
-../Core/Src/Motor.c:74:6:Motor_voidTurnLeft	8	static
+../Core/Src/Motor.c:85:15:Motor_frontSetPWR	24	static
+../Core/Src/Motor.c:97:15:Motor_frontMoveRight	8	static
+../Core/Src/Motor.c:108:15:Motor_frontMoveLeft	8	static
+../Core/Src/Motor.c:118:15:Motor_frontStop	8	static
+../Core/Src/Motor.c:129:15:Motor_frontStart	8	static
+../Core/Src/Motor.c:135:15:Motor_rearSetPWR	24	static
+../Core/Src/Motor.c:146:15:Motor_rearMoveForward	24	static
+../Core/Src/Motor.c:157:15:Motor_rearMoveBackward	24	static
+../Core/Src/Motor.c:168:15:Motor_rearStop	8	static
+../Core/Src/Motor.c:179:15:Motor_rearStart	24	static

@@ -26,11 +26,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Core/Inc/GSM_GPS.h ../Core/Inc/Car_Interface.h ../Core/Inc/main.h \
- ../Core/Inc/Data_Manager.h ../Core/Inc/WaterSensor.h \
+ ../Core/Inc/Motor.h ../Core/Inc/Data_Manager.h ../Core/Inc/WaterSensor.h \
  ../Core/Inc/WaterSensor_Config.h ../Core/Inc/IR.h \
  ../Core/Inc/IR_Config.h ../Core/Inc/dht22.h ../Core/Inc/Ultrasonic.h \
- ../Core/Inc/dht22.h ../Core/Inc/IR.h ../Core/Inc/WaterSensor.h \
- ../Core/Inc/Ultrasonic.h ../Core/Inc/Motor.h
+ ../Core/Inc/GSM_GPS.h ../Core/Inc/dht22.h ../Core/Inc/IR.h \
+ ../Core/Inc/WaterSensor.h ../Core/Inc/Ultrasonic.h ../Core/Inc/Motor.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -61,6 +61,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/GSM_GPS.h:
 ../Core/Inc/Car_Interface.h:
 ../Core/Inc/main.h:
+../Core/Inc/Motor.h:
 ../Core/Inc/Data_Manager.h:
 ../Core/Inc/WaterSensor.h:
 ../Core/Inc/WaterSensor_Config.h:
@@ -68,6 +69,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/IR_Config.h:
 ../Core/Inc/dht22.h:
 ../Core/Inc/Ultrasonic.h:
+../Core/Inc/GSM_GPS.h:
 ../Core/Inc/dht22.h:
 ../Core/Inc/IR.h:
 ../Core/Inc/WaterSensor.h:
