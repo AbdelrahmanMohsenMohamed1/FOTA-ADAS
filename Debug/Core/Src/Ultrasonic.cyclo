@@ -1,7 +1,0 @@
-Ultrasonic.c:19:6:HAL_TIM_IC_CaptureCallback	12
-Ultrasonic.c:118:6:ultrasonic_voidInit	1
-Ultrasonic.c:128:7:ultrasonic1_voidGetDistance	3
-Ultrasonic.c:152:7:ultrasonic2_voidGetDistance	3
-Ultrasonic.c:176:7:ultrasonic3_voidGetDistance	3
-Ultrasonic.c:200:7:ultrasonic4_voidGetDistance	3
-Ultrasonic.c:222:6:Udelay_us	2
