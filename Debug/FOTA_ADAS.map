@@ -498,24 +498,25 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Core/Src/Ultrasonic.o
  .data          0x0000000000000000        0x0 ./Core/Src/Ultrasonic.o
  .bss           0x0000000000000000        0x0 ./Core/Src/Ultrasonic.o
- .bss.flag      0x0000000000000000        0x4 ./Core/Src/Ultrasonic.o
- .bss.T1        0x0000000000000000       0x10 ./Core/Src/Ultrasonic.o
- .bss.T2        0x0000000000000000       0x10 ./Core/Src/Ultrasonic.o
+ .bss.flag      0x0000000000000000        0x1 ./Core/Src/Ultrasonic.o
+ .bss.T1        0x0000000000000000        0x4 ./Core/Src/Ultrasonic.o
+ .bss.T2        0x0000000000000000        0x4 ./Core/Src/Ultrasonic.o
  .text.HAL_TIM_IC_CaptureCallback
-                0x0000000000000000      0x2c4 ./Core/Src/Ultrasonic.o
+                0x0000000000000000      0x254 ./Core/Src/Ultrasonic.o
  .text.ultrasonic_voidInit
                 0x0000000000000000       0x2c ./Core/Src/Ultrasonic.o
  .text.ultrasonic1_voidGetDistance
-                0x0000000000000000      0x114 ./Core/Src/Ultrasonic.o
+                0x0000000000000000       0xfc ./Core/Src/Ultrasonic.o
  .text.ultrasonic2_voidGetDistance
-                0x0000000000000000      0x114 ./Core/Src/Ultrasonic.o
+                0x0000000000000000       0xfc ./Core/Src/Ultrasonic.o
  .text.ultrasonic3_voidGetDistance
-                0x0000000000000000      0x114 ./Core/Src/Ultrasonic.o
+                0x0000000000000000       0xfc ./Core/Src/Ultrasonic.o
  .text.ultrasonic4_voidGetDistance
-                0x0000000000000000      0x114 ./Core/Src/Ultrasonic.o
- .text.delay    0x0000000000000000       0x30 ./Core/Src/Ultrasonic.o
- .debug_info    0x0000000000000000      0x953 ./Core/Src/Ultrasonic.o
- .debug_abbrev  0x0000000000000000      0x264 ./Core/Src/Ultrasonic.o
+                0x0000000000000000       0xfc ./Core/Src/Ultrasonic.o
+ .text.Udelay_us
+                0x0000000000000000       0x30 ./Core/Src/Ultrasonic.o
+ .debug_info    0x0000000000000000      0x8c4 ./Core/Src/Ultrasonic.o
+ .debug_abbrev  0x0000000000000000      0x222 ./Core/Src/Ultrasonic.o
  .debug_aranges
                 0x0000000000000000       0x50 ./Core/Src/Ultrasonic.o
  .debug_ranges  0x0000000000000000       0x40 ./Core/Src/Ultrasonic.o
@@ -558,8 +559,8 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x28e ./Core/Src/Ultrasonic.o
  .debug_macro   0x0000000000000000       0x83 ./Core/Src/Ultrasonic.o
  .debug_macro   0x0000000000000000       0x3a ./Core/Src/Ultrasonic.o
- .debug_line    0x0000000000000000      0x985 ./Core/Src/Ultrasonic.o
- .debug_str     0x0000000000000000    0x85497 ./Core/Src/Ultrasonic.o
+ .debug_line    0x0000000000000000      0x8d5 ./Core/Src/Ultrasonic.o
+ .debug_str     0x0000000000000000    0x8549d ./Core/Src/Ultrasonic.o
  .comment       0x0000000000000000       0x51 ./Core/Src/Ultrasonic.o
  .debug_frame   0x0000000000000000      0x10c ./Core/Src/Ultrasonic.o
  .ARM.attributes
