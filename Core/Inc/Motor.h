@@ -15,8 +15,10 @@
 extern TIM_HandleTypeDef htim2;
 
 void Motor_Start();
-void Motor_voidStop(void);
-void Motor_SetSpeed(uint8_t copy_u8Speed);
+void Motor_voidStopFront(void);
+void Motor_voidStopRear(void);
+void Motor_SetSpeedFront(uint8_t copy_u8Speed);
+void Motor_SetSpeedRear(uint8_t copy_u8Speed);
 void Motor_voidMoveForward(void);
 void Motor_voidMoveBackward(void);
 void Motor_voidTurnRight(void);

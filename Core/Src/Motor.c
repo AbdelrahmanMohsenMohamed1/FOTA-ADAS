@@ -8,16 +8,16 @@
 #include "Motor.h"
 
 #define RearMotor_INT1_GPIO_Port GPIOA
-#define RearMotor_INT1_Pin GPIO_PIN_1
+#define RearMotor_INT1_Pin GPIO_PIN_4
 
 #define RearMotor_INT2_GPIO_Port GPIOA
-#define RearMotor_INT2_Pin GPIO_PIN_1
+#define RearMotor_INT2_Pin GPIO_PIN_5
 
 #define FrontMotor_INT1_GPIO_Port GPIOA
-#define FrontMotor_INT1_Pin GPIO_PIN_1
+#define FrontMotor_INT1_Pin GPIO_PIN_6
 
 #define FrontMotor_INT2_GPIO_Port GPIOA
-#define FrontMotor_INT2_Pin GPIO_PIN_1
+#define FrontMotor_INT2_Pin GPIO_PIN_7
 
 
 void Motor_Start()
@@ -27,24 +27,33 @@ void Motor_Start()
 
 }
 
-void Motor_voidStop(void)
+void Motor_voidStopFront(void)
 {
-	HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_2);
-	HAL_GPIO_WritePin(RearMotor_INT1_GPIO_Port, RearMotor_INT1_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(RearMotor_INT2_GPIO_Port, RearMotor_INT2_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(FrontMotor_INT1_GPIO_Port, FrontMotor_INT1_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(FrontMotor_INT2_GPIO_Port, FrontMotor_INT2_Pin, GPIO_PIN_RESET);
 
 }
 
+void Motor_voidStopRear(void)
+{
+	HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1);
+	HAL_GPIO_WritePin(RearMotor_INT1_GPIO_Port, RearMotor_INT1_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(RearMotor_INT2_GPIO_Port, RearMotor_INT2_Pin, GPIO_PIN_RESET);
+}
+
 /*
  * values of speed between 1 ----> 500
  */
-void Motor_SetSpeed(uint8_t copy_u8Speed)
+void Motor_SetSpeedFront(uint8_t copy_u8Speed)
 {
 
 	TIM2->CCR1 = copy_u8Speed;
+
+}
+
+void Motor_SetSpeedRear(uint8_t copy_u8Speed)
+{
 	TIM2->CCR2 = copy_u8Speed;
 }
 
