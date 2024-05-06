@@ -10,6 +10,7 @@
 
 #include "main.h"
 #include "Data_Manager.h"
+
 /**
  * @brief Stops the car's movement.
  *

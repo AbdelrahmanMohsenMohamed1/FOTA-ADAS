@@ -110,31 +110,28 @@ void Service_Car_SteerForward() {
 void Service_Car_ACC_Enable(Data_Manager_t *px_DataManager, uint8_t cpy_u8Speed) {
 	if (AccpreviousEn == 0) { 				// first time to activate ACC
 		ACC_Max_CAR_SPEED = cpy_u8Speed;
-	} else { 								// ACC activated once before
-		if (px_DataManager->FrontUltraReading > threshold_1)
-		{   // increase speed
-			if(cpy_u8Speed + Speed_Ratio_1 <= ACC_Max_CAR_SPEED ){
-				// Service_Car_SteerForward(cpy_u8Speed + Speed_Ratio_1);
-			}else{
-				// Service_Car_SteerForward(cpy_u8Speed + Speed_Ratio_1);
-			}
+	} else {
+	}
+	// ACC activated once before
+	if (px_DataManager->FrontUltraReading > threshold_1) {   // increase speed
+		if (cpy_u8Speed + Speed_Ratio_1 <= ACC_Max_CAR_SPEED) {
+			// Service_Car_SteerForward(cpy_u8Speed + Speed_Ratio_1);
+		} else {
+			// Service_Car_SteerForward(cpy_u8Speed + Speed_Ratio_1);
 		}
-		else if ((uint8_t) (px_DataManager->FrontUltraReading) <= threshold_1
-				&& (uint8_t) (px_DataManager->FrontUltraReading) >= threshold_2)
-		{	// stay in the same speed
-			// Service_Car_SteerForward(cpy_u8Speed );
-		}
-		else if ((uint8_t) (px_DataManager->FrontUltraReading) < threshold_2)
-		{   // decrease speed
-			if((int8_t)(cpy_u8Speed - Speed_Ratio_1)<0 ){
-				// Service_Car_SteerForward(cpy_u8Speed  - Speed_Ratio_2);
-			}else if((int8_t)(cpy_u8Speed - Speed_Ratio_2)<0 ){
-				// Service_Car_SteerForward(cpy_u8Speed  - 1);
-			}else{
-				// Service_Car_SteerForward(0);
-			}
+	} else if ((uint8_t) (px_DataManager->FrontUltraReading) <= threshold_1
+			&& (uint8_t) (px_DataManager->FrontUltraReading) >= threshold_2) {// stay in the same speed
+																			  // Service_Car_SteerForward(cpy_u8Speed );
+	} else if ((uint8_t) (px_DataManager->FrontUltraReading) < threshold_2) { // decrease speed
+		if ((int8_t) (cpy_u8Speed - Speed_Ratio_1) < 0) {
+			// Service_Car_SteerForward(cpy_u8Speed  - Speed_Ratio_2);
+		} else if ((int8_t) (cpy_u8Speed - Speed_Ratio_2) < 0) {
+			// Service_Car_SteerForward(cpy_u8Speed  - 1);
+		} else {
+			// Service_Car_SteerForward(0);
 		}
 	}
+
 }
 
 /* @breif :disables Adaptive Cruise control
