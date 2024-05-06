@@ -34,15 +34,15 @@ uint8_t DHT22_StartSignal(void)
 
 	Set_DHT22_Output();
 	HAL_GPIO_WritePin(DHT22_PORT, DHT22_PIN, GPIO_PIN_RESET);
-	delay_us(1200);
+	delay_us_2(1200);
 	HAL_GPIO_WritePin(DHT22_PORT, DHT22_PIN, GPIO_PIN_SET);
-	delay_us(40);
+	delay_us_2(40);
 	Set_DHT22_Iutput();
-	delay_us(40); // Wait for sensor to start transmitting data
+	delay_us_2(40); // Wait for sensor to start transmitting data
 
 	if (!(HAL_GPIO_ReadPin(DHT22_PORT, DHT22_PIN)))
 	{
-		delay_us(80); // Wait for sensor response
+		delay_us_2(80); // Wait for sensor response
 		if ((HAL_GPIO_ReadPin(DHT22_PORT, DHT22_PIN)))
 		{
 			Response = 1; // Set response flag if sensor responds
@@ -74,7 +74,7 @@ uint8_t DHT22_Read(void)
 		{
 			cMillis = HAL_GetTick(); 	//Update current time
 		}
-		delay_us(40); 	//Wait for the data bit
+		delay_us_2(40); 	//Wait for the data bit
 
 		if (!(HAL_GPIO_ReadPin(DHT22_PORT, DHT22_PIN)))
 		{
@@ -131,7 +131,7 @@ uint8_t DHT22_GetTemperature(void)
 	return Temperature;
 }
 
-void delay_us (uint16_t us)
+ void delay_us_2 (uint16_t us)
 {
 	__HAL_TIM_SET_COUNTER(&htim1, 0);
 	while (__HAL_TIM_GET_COUNTER(&htim1) < us);

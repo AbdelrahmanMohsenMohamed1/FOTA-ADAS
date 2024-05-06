@@ -135,6 +135,7 @@ void ultrasonic_voidInit(void) {
 
 float getdistance (void)
 {
+	float distance =0;
 	if(T2[0]>T1[0])
 		{
 			distance =  (T2[0] - T1[0])*.034/2;
@@ -143,6 +144,7 @@ float getdistance (void)
 		{
 			distance = ((0xffff - T1[0]) + T2[0])*.034/2;
 		}
+	return distance;
 }
 
 float FrontUltrasonic_floatGetDistance(void)

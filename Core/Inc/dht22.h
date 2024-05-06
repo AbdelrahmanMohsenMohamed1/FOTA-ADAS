@@ -22,6 +22,6 @@ uint8_t DHT22_Read(void);
 
 uint8_t DHT22_GetTemperature(void);
 
-void delay_us (uint16_t us);
+void delay_us_2 (uint16_t us);
 
 #endif /* INC_DHT22_H_ */

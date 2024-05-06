@@ -27,3 +27,7 @@ uint8_t IR4_u8ObstacleDetect(){
 	uint8_t obstacle_detected = HAL_GPIO_ReadPin(IR4_PORT,IR_PIN_4);
 	return obstacle_detected;
 }
+uint8_t IR5_u8ObstacleDetect(void){
+	uint8_t obstacle_detected = HAL_GPIO_ReadPin(IR5_PORT,IR_PIN_5);
+		return obstacle_detected;
+}

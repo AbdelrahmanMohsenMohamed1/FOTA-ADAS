@@ -11,9 +11,10 @@
 #include "main.h"
 #include "IR_Config.h"
 
-uint8_t IR1_u8ObstacleDetect();
-uint8_t IR2_u8ObstacleDetect();
-uint8_t IR3_u8ObstacleDetect();
-uint8_t IR4_u8ObstacleDetect();
+uint8_t IR1_u8ObstacleDetect(void);
+uint8_t IR2_u8ObstacleDetect(void);
+uint8_t IR3_u8ObstacleDetect(void);
+uint8_t IR4_u8ObstacleDetect(void);
+uint8_t IR5_u8ObstacleDetect(void);
 
 #endif /* INC_IR_C_ */
