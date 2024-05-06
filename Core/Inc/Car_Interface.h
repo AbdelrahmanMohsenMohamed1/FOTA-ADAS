@@ -9,7 +9,7 @@
 #define INC_CAR_INTERFACE_H_
 
 #include "main.h"
-
+#include "Data_Manager.h"
 /**
  * @brief Stops the car's movement.
  *
@@ -65,5 +65,19 @@ void Service_Car_MoveSteeringLeft();
  *
  */
 void Service_Car_SteerForward();
+
+/*
+ * @brief : Starts Adaptive Cruise Control  saving current vehicle speed to be the max speed  reached if decreaed
+ * @param : cpy_u8Speed   Current vehicle speed
+ * @param : *px_DataManager instance of DataManager
+ * @returns : void
+ * */
+void Service_Car_ACC_Enable(Data_Manager_t *px_DataManager,uint8_t cpy_u8Speed);
+
+/* @breif :disables Adaptive Cruise control
+ * @reutrns : void
+ */
+void Service_Car_ACC_Disable(void);
+
 
 #endif /* INC_CAR_INTERFACE_H_ */

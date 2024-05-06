@@ -18,10 +18,10 @@
 typedef struct
 {
 	// Ultrasonic sensor readings
-	uint8_t FrontUltraReading;       // Reading from the front ultrasonic sensor
-	uint8_t RearUltraReading;        // Reading from the rear ultrasonic sensor
-	uint8_t RightSideUltraReading;   // Reading from the right side ultrasonic sensor
-	uint8_t LeftSideUltraReading;    // Reading from the left side ultrasonic sensor
+	float FrontUltraReading;       // Reading from the front ultrasonic sensor
+	float RearUltraReading;        // Reading from the rear ultrasonic sensor
+	float RightSideUltraReading;   // Reading from the right side ultrasonic sensor
+	float LeftSideUltraReading;    // Reading from the left side ultrasonic sensor
 
 	// Infrared sensor readings
 	uint8_t FrontalRightIR;                 // Reading from the front infrared sensor
