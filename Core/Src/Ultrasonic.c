@@ -141,7 +141,7 @@ float FrontUltrasonic_floatGetDistance(void)
 	uint16_t time =0;
 
 	HAL_GPIO_WritePin(TRIG_PORT_1, TRIG_PIN_1, GPIO_PIN_SET);
-	delay_us(10);
+	delay(10);
 	HAL_GPIO_WritePin(TRIG_PORT_1, TRIG_PIN_1, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC1);
 	while (flag[0] < 2 && time <50)
@@ -198,7 +198,7 @@ float RightUltrasonic_floatGetDistance(void)
 	uint16_t time =0;
 
 	HAL_GPIO_WritePin(TRIG_PORT_3, TRIG_PIN_3, GPIO_PIN_SET);
-	delay_us(10);
+	delay(10);
 	HAL_GPIO_WritePin(TRIG_PORT_3, TRIG_PIN_3, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC3);
 	while (flag[2] < 2&& time <50)
