@@ -7,7 +7,6 @@
 #include "dht22.h"
 
 uint32_t pMillis, cMillis;
-extern TIM_HandleTypeDef htim1;
 
 void Set_DHT22_Output(void)
 {
@@ -97,18 +96,18 @@ uint8_t DHT22_Read(void)
 	return Received_Bits;
 }
 
-uint8_t DHT22_GetTemperature(void)
+uint8_t DHT22_GetTemperature(uint8_t *Humidity)
 {
 	uint8_t RH1, RH2, TC1, TC2, SUM, CHECK;
 
-	float Temperature = 0; 		// Temperature in Celsius
+	uint8_t Temperature = 0; 		// Temperature in Celsius
 	if (DHT22_StartSignal())
 	{
-		RH1 = DHT22_Read();
-		RH2 = DHT22_Read();
-		TC1 = DHT22_Read();
-		TC2 = DHT22_Read();
-		SUM = DHT22_Read();
+		RH1 = DHT22_Read();		// First 8bits of humidity
+		RH2 = DHT22_Read();		// Second 8bits of Relative humidity
+		TC1 = DHT22_Read();		// First 8bits of Celsius
+		TC2 = DHT22_Read();		// Second 8bits of Celsius
+		SUM = DHT22_Read();		// Check sum
 
 		// Calculate checksum
 		CHECK = RH1 + RH2 + TC1 + TC2;
@@ -123,17 +122,14 @@ uint8_t DHT22_GetTemperature(void)
 			}
 			else
 			{
-				Temperature = (float)((TC1 << 8) | TC2) / 10;
+				Temperature = ((TC1 << 8) | TC2) / 10;
 			}
+			*Humidity = ((RH1<<8)|RH2)/10;
 		}
         HAL_Delay(1000); // Delay before reading data again
 	}
 	return Temperature;
 }
 
-void delay_us (uint16_t us)
-{
-	__HAL_TIM_SET_COUNTER(&htim1, 0);
-	while (__HAL_TIM_GET_COUNTER(&htim1) < us);
-}
+
 

@@ -20,7 +20,7 @@ uint8_t DHT22_StartSignal(void);
 
 uint8_t DHT22_Read(void);
 
-uint8_t DHT22_GetTemperature(void);
+uint8_t DHT22_GetTemperature(uint8_t *Humidity);
 
 void delay_us (uint16_t us);
 
