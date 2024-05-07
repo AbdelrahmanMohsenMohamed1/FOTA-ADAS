@@ -1,7 +1,0 @@
-../Core/Src/Motor.c:23:6:Motor_Start	8	static
-../Core/Src/Motor.c:30:6:Motor_voidStop	8	static
-../Core/Src/Motor.c:44:6:Motor_SetSpeed	16	static
-../Core/Src/Motor.c:51:6:Motor_voidMoveForward	8	static
-../Core/Src/Motor.c:58:6:Motor_voidMoveBackward	8	static
-../Core/Src/Motor.c:64:6:Motor_voidTurnRight	8	static
-../Core/Src/Motor.c:74:6:Motor_voidTurnLeft	8	static

@@ -1,21 +1,3 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
@@ -31,20 +13,7 @@
 #include "Motor.h"
 /* USER CODE END Includes */
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
 
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
@@ -55,9 +24,8 @@ TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
-/* USER CODE BEGIN PV */
 
-/* USER CODE END PV */
+
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -85,25 +53,18 @@ extern uint8_t Distance4;
   */
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
 
-  /* USER CODE END 1 */
 
-  /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
 
-  /* USER CODE BEGIN SysInit */
 
-  /* USER CODE END SysInit */
+
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
@@ -112,19 +73,14 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
-  /* USER CODE BEGIN 2 */
 
-  /* USER CODE END 2 */
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+
   while (1)
   {
-    /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+
   }
-  /* USER CODE END 3 */
 }
 
 /**
@@ -212,7 +168,6 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 0 */
 
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_IC_InitTypeDef sConfigIC = {0};
 
@@ -222,19 +177,10 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 72-1;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 65535;
+  htim1.Init.Period = 65535-1;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
   if (HAL_TIM_IC_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
@@ -421,11 +367,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, Motor1_INT2_Pin|Motor1_INT1_Pin|Motor2_INT1_Pin|Motor3_INT2_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, Ultra_Trigger4_Pin|Ultra_Trigger3_Pin|Ultra_Trigger2_Pin|Ulta_Trigger1_Pin
-                          |DHT_Pin|WaterLevel_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, mot1_in1_Pin|mot1_in2_Pin|mot2_in1_Pin|mot2_in2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
@@ -434,33 +376,28 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Motor1_INT2_Pin Motor1_INT1_Pin Motor2_INT1_Pin Motor3_INT2_Pin */
-  GPIO_InitStruct.Pin = Motor1_INT2_Pin|Motor1_INT1_Pin|Motor2_INT1_Pin|Motor3_INT2_Pin;
+  /*Configure GPIO pins : mot1_in1_Pin mot1_in2_Pin mot2_in1_Pin mot2_in2_Pin */
+  GPIO_InitStruct.Pin = mot1_in1_Pin|mot1_in2_Pin|mot2_in1_Pin|mot2_in2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Ultra_Trigger4_Pin Ultra_Trigger3_Pin Ultra_Trigger2_Pin Ulta_Trigger1_Pin
-                           DHT_Pin WaterLevel_Pin */
-  GPIO_InitStruct.Pin = Ultra_Trigger4_Pin|Ultra_Trigger3_Pin|Ultra_Trigger2_Pin|Ulta_Trigger1_Pin
-                          |DHT_Pin|WaterLevel_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : IR1_Pin IR3_Pin IR4_Pin */
-  GPIO_InitStruct.Pin = IR1_Pin|IR3_Pin|IR4_Pin;
+  /*Configure GPIO pins : IR_leftfront_Pin IR_midfront_Pin IR_rightfront_Pin Ultra_Trig4_Pin
+                           Ultra_Trig3_Pin Ultra_Trig2_Pin Ultra_Trig1_Pin IR1_Pin
+                           DHT_Pin PB3 PB4 water_sensor_Pin */
+  GPIO_InitStruct.Pin = IR_leftfront_Pin|IR_midfront_Pin|IR_rightfront_Pin|Ultra_Trig4_Pin
+                          |Ultra_Trig3_Pin|Ultra_Trig2_Pin|Ultra_Trig1_Pin|IR1_Pin
+                          |DHT_Pin|GPIO_PIN_3|GPIO_PIN_4|water_sensor_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : IR2_Pin */
-  GPIO_InitStruct.Pin = IR2_Pin;
+  /*Configure GPIO pins : PA12 IR2_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_12|IR2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(IR2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

@@ -1,36 +1,40 @@
 /*
  * Ultrasonic.h
  *
- *  Created on: May 2, 2024
- *      Author: Abdelrahman
+ *  Created on: Apr 29, 2024
+ *      Author: Amira
  */
 
 #ifndef INC_ULTRASONIC_H_
 #define INC_ULTRASONIC_H_
 
-#include "main.h"
+#include "stm32f1xx_hal.h"
+#include "stm32f1xx_hal_tim.h"
 
-#define TRIG_PIN_1 GPIO_PIN_13
-#define TRIG_PORT_1 GPIOB
 
-#define TRIG_PIN_2 GPIO_PIN_12
-#define TRIG_PORT_2 GPIOB
+#define   INDEX_0               0
+#define   INDEX_1               1
+#define   INDEX_2               2
+#define   INDEX_3               3
 
-#define TRIG_PIN_3 GPIO_PIN_11
-#define TRIG_PORT_3 GPIOB
+#define   NO_ACK                0
+#define   ACK                   1
 
-#define TRIG_PIN_4 GPIO_PIN_10
-#define TRIG_PORT_4 GPIOB
+#define   ZERO                  0
+#define   DELAY_1MILLI          1
 
-extern uint8_t UL_Distance1 ;
-extern uint8_t UL_Distance2 ;
-extern uint8_t UL_Distance3 ;
-extern uint8_t UL_Distance4 ;
+#define    RUN_TIME_OUT         5
+#define   VELOCITY               (float)0.034
+#define   DIVIDE_BY_TWO             2
+#define   FLAG_CHECK                2
+#define   MAX_DISTANCE              150
 
-void delay (uint16_t time);
-void HCSR04_Read1 (void);
-void HCSR04_Read2 (void);
-void HCSR04_Read3 (void);
-void HCSR04_Read4 (void);
+void delay(uint16_t us);
+void ultrasonic_voidInit(void);
+float FrontUltrasonic_voidGetDistance(void);
+uint8_t RearUltrasonic_voidGetDistance(void);
+uint8_t RightUltrasonic_voidGetDistance(void);
+uint8_t LeftUltrasonic_voidGetDistance(void);
+
 
 #endif /* INC_ULTRASONIC_H_ */
