@@ -16,12 +16,14 @@
 #define ACC_THRESHOLD_2_CM		50
 #define ACC_SPEED_RATIO_1		15
 #define ACC_SPEED_RATIO_2 		2
-
+#define ACC_INITIAL				1
+#define ACC_ACTIVATED           2
+#define ACC_DISABLED  			3
 typedef struct{
 	uint8_t u8_vehicle_Currentspeed;
 	uint8_t u8_vehicle_Lastspeed;
 	uint8_t u8_Acc_max_Speed;
-	uint8_t u8_isACC_Activaed;
+	uint8_t u8_isACC_Activated;
 	Data_Manager_t *pxDatamanger;
 
 }ACC_instance_t;
