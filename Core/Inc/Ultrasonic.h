@@ -26,7 +26,7 @@
 #define   VELOCITY               (float)0.034
 #define   DIVIDE_BY_TWO             2
 #define   FLAG_CHECK                2
-#define   MAX_DISTANCE              150
+
 
 void delay(uint16_t us);
 void ultrasonic_voidInit(void);
