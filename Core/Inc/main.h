@@ -73,14 +73,6 @@ void Error_Handler(void);
 #define IR_midfront_GPIO_Port GPIOB
 #define IR_rightfront_Pin GPIO_PIN_2
 #define IR_rightfront_GPIO_Port GPIOB
-#define Ultra_Trig4_Pin GPIO_PIN_10
-#define Ultra_Trig4_GPIO_Port GPIOB
-#define Ultra_Trig3_Pin GPIO_PIN_11
-#define Ultra_Trig3_GPIO_Port GPIOB
-#define Ultra_Trig2_Pin GPIO_PIN_12
-#define Ultra_Trig2_GPIO_Port GPIOB
-#define Ultra_Trig1_Pin GPIO_PIN_13
-#define Ultra_Trig1_GPIO_Port GPIOB
 #define IR1_Pin GPIO_PIN_14
 #define IR1_GPIO_Port GPIOB
 #define DHT_Pin GPIO_PIN_15

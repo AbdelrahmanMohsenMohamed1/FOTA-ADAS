@@ -21,6 +21,5 @@
 #define TRIG_PIN_4     GPIO_PIN_10
 #define TRIG_PORT_4    GPIOB
 
-#define NUMBER_OF_SENSOR   4
 
 #endif /* INC_ULTRASONIC_CONFG_H_ */
