@@ -9,35 +9,35 @@
 #include "Ultrasonic_Confg.h"
 extern TIM_HandleTypeDef htim1;
 
-uint8_t  flag[4] = {0};
-uint32_t T1[4]={0},T2[4]={0};
+uint8_t  flag[NUMBER_OF_SENSOR] = {ZERO};
+uint32_t T1[NUMBER_OF_SENSOR]={ZERO},T2[NUMBER_OF_SENSOR]={ZERO};
 
-uint8_t flagpointer = 2;
+
 /**
  * @brief This function handles TIM1 capture compare interrupt.
  */
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
 
-	flagpointer =htim->Channel;
+
 	/* USER CODE BEGIN voidTIM1_CC_IRQn 0 */
 	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
 	{
-		if (flag[0] == 0 ) {
+		if (flag[INDEX_0] == NO_ACK ) {
 
-			T1[0] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+			T1[INDEX_0] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
 			//Input Capture Edge Select falling edge
 			__HAL_TIM_SET_CAPTUREPOLARITY(&htim1 ,TIM_CHANNEL_1 ,TIM_INPUTCHANNELPOLARITY_FALLING) ;
-			flag[0]++;
+			flag[INDEX_0]++;
 
 		}
-		else if (flag[0] == 1) {
+		else if (flag[INDEX_0] == ACK) {
 
-			flag[0]++;
-			T2[0] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+			flag[INDEX_0]++;
+			T2[INDEX_0] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
 			//Input Capture Edge Select rising edge
 			__HAL_TIM_SET_CAPTUREPOLARITY(&htim1 ,TIM_CHANNEL_1 ,TIM_INPUTCHANNELPOLARITY_RISING) ;
-			__HAL_TIM_SET_COUNTER(htim,0);
+			__HAL_TIM_SET_COUNTER(htim,ZERO);
 			__HAL_TIM_DISABLE_IT(&htim1, TIM_IT_CC1);
 		}
 		else {
@@ -48,21 +48,21 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 
 	else if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2)
 	{
-		if (flag[1] == 0) {
+		if (flag[INDEX_1] == NO_ACK) {
 
-			T1[1] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
+			T1[INDEX_1] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
 			//Input Capture Edge Select falling edge
 			__HAL_TIM_SET_CAPTUREPOLARITY(&htim1 ,TIM_CHANNEL_2 ,TIM_INPUTCHANNELPOLARITY_FALLING) ;
-			flag[1]++;
+			flag[INDEX_1]++;
 
 		}
-		else if (flag[1] == 1) {
+		else if (flag[INDEX_1] == ACK) {
 
-			flag[1]++;
-			T2[1] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
+			flag[INDEX_1]++;
+			T2[INDEX_1] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
 			//Input Capture Edge Select rising edge
 			__HAL_TIM_SET_CAPTUREPOLARITY(&htim1 ,TIM_CHANNEL_2 ,TIM_INPUTCHANNELPOLARITY_RISING) ;
-			__HAL_TIM_SET_COUNTER(htim,0);
+			__HAL_TIM_SET_COUNTER(htim,ZERO);
 			__HAL_TIM_DISABLE_IT(&htim1, TIM_IT_CC2);
 		}
 		else
@@ -74,21 +74,21 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 
 	else if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_3)
 	{
-		if (flag[2] == 0) {
+		if (flag[INDEX_2] == NO_ACK) {
 
-			T1[2] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3);
+			T1[INDEX_2] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3);
 			//Input Capture Edge Select falling edge
 			__HAL_TIM_SET_CAPTUREPOLARITY(&htim1 ,TIM_CHANNEL_3 ,TIM_INPUTCHANNELPOLARITY_FALLING) ;
-			flag[2]++;
+			flag[INDEX_2]++;
 
 		}
-		else if (flag[2] == 1) {
+		else if (flag[INDEX_2] == ACK) {
 
-			flag[2]++;
-			T2[2] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3);
+			flag[INDEX_2]++;
+			T2[INDEX_2] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3);
 			//Input Capture Edge Select rising edge
 			__HAL_TIM_SET_CAPTUREPOLARITY(&htim1 ,TIM_CHANNEL_3 ,TIM_INPUTCHANNELPOLARITY_RISING) ;
-			__HAL_TIM_SET_COUNTER(htim,0);
+			__HAL_TIM_SET_COUNTER(htim,ZERO);
 			__HAL_TIM_DISABLE_IT(&htim1, TIM_IT_CC3);
 		}
 		else
@@ -97,24 +97,23 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 		}
 	}
 
-	else
+	else if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_4)
 	{
-		flagpointer++;
-		if (flag[3] == 0) {
+		if (flag[INDEX_3] == NO_ACK) {
 
-			T1[3] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4);
+			T1[INDEX_3] = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4);
 			//Input Capture Edge Select falling edge
 			__HAL_TIM_SET_CAPTUREPOLARITY(&htim1 ,TIM_CHANNEL_4 ,TIM_INPUTCHANNELPOLARITY_FALLING) ;
-			flag[3]++;
+			flag[INDEX_3]++;
 
 		}
-		else if (flag[3] == 1) {
+		else if (flag[INDEX_3] == ACK) {
 
-			flag[3]++;
-			T2[3]= HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4);
+			flag[INDEX_3]++;
+			T2[INDEX_3]= HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4);
 			//Input Capture Edge Select rising edge
 			__HAL_TIM_SET_CAPTUREPOLARITY(&htim1 ,TIM_CHANNEL_4 ,TIM_INPUTCHANNELPOLARITY_RISING) ;
-			__HAL_TIM_SET_COUNTER(htim,0);
+			__HAL_TIM_SET_COUNTER(htim,ZERO);
 			__HAL_TIM_DISABLE_IT(&htim1, TIM_IT_CC4);
 		}
 		else
@@ -134,125 +133,149 @@ void ultrasonic_voidInit(void) {
 
 }
 
-
-
-float FrontUltrasonic_floatGetDistance(void)
+float FrontUltrasonic_voidGetDistance(void)
 {
 	float distance;
-	uint16_t time =0;
+	uint8_t time =ZERO;
 
 	HAL_GPIO_WritePin(TRIG_PORT_1, TRIG_PIN_1, GPIO_PIN_SET);
 	delay(10);
 	HAL_GPIO_WritePin(TRIG_PORT_1, TRIG_PIN_1, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC1);
-	while (flag[0] < 2 && time <50)
+	while (flag[INDEX_0] < FLAG_CHECK && time <RUN_TIME_OUT)
 	{
 		time++;
-		HAL_Delay(1);
+		HAL_Delay(DELAY_1MILLI);
 	}
-	if(T2[0]>T1[0])
+
+	if(T2[INDEX_0]>T1[INDEX_0])
 	{
-		distance =  (T2[0] - T1[0])*.034/2;
+		distance =  (T2[INDEX_0] - T1[INDEX_0])* VELOCITY /DIVIDE_BY_TWO;
 	}
 	else
 	{
-		distance = ((0xffff - T1[0]) + T2[0])*.034/2;
+		distance = ((0xffff - T1[INDEX_0]) + T2[INDEX_0])*VELOCITY/DIVIDE_BY_TWO;
 	}
 
-	flag[0] = 0;
+	if(distance>MAX_DISTANCE)
+	{
+		distance=MAX_DISTANCE;
+	}
+	else
+	{
+		/* do nothing */
+	}
+
+	flag[INDEX_0] = ZERO;
 	return distance;
 }
 
-
-float RearUltrasonic_floatGetDistance(void)
+float RearUltrasonic_voidGetDistance(void)
 {
-	float distance;
-	uint16_t time =0;
+	uint8_t distance;
+	uint8_t time =ZERO;
 	HAL_GPIO_WritePin(TRIG_PORT_2, TRIG_PIN_2, GPIO_PIN_SET);
 	delay(10);
 	HAL_GPIO_WritePin(TRIG_PORT_2, TRIG_PIN_2, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC2);
-	while (flag[1] < 2&& time <50)
+	while (flag[INDEX_1] < FLAG_CHECK&& time <RUN_TIME_OUT)
 	{
 		time++;
-		HAL_Delay(1);
+		HAL_Delay(DELAY_1MILLI);
 	}
 
-
-	if(T2[1]>T1[1])
+	if(T2[INDEX_1]>T1[INDEX_1])
 	{
-		distance =  (T2[1] - T1[1])*.034/2;
+		distance =  (T2[INDEX_1] - T1[INDEX_1]) * VELOCITY/DIVIDE_BY_TWO;
 	}
 	else
 	{
-		distance = ((0xffff - T1[1]) + T2[1])*.034/2;
+		distance = ((0xffff - T1[INDEX_1]) + T2[INDEX_1])*VELOCITY/DIVIDE_BY_TWO;
 	}
-
-	flag[1] = 0;
+	if(distance>MAX_DISTANCE)
+	{
+		distance=MAX_DISTANCE;
+	}
+	else
+	{
+		/* do nothing */
+	}
+	flag[INDEX_1] = ZERO;
 	return distance;
 }
 
-
-float RightUltrasonic_floatGetDistance(void)
+float RightUltrasonic_voidGetDistance(void)
 {
-	float distance;
-	uint16_t time =0;
+	uint8_t distance;
+	uint8_t time =ZERO;
 
 	HAL_GPIO_WritePin(TRIG_PORT_3, TRIG_PIN_3, GPIO_PIN_SET);
 	delay(10);
 	HAL_GPIO_WritePin(TRIG_PORT_3, TRIG_PIN_3, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC3);
-	while (flag[2] < 2&& time <50)
+	while (flag[INDEX_2] < FLAG_CHECK && time <RUN_TIME_OUT)
 	{
 		time++;
-		HAL_Delay(1);
+		HAL_Delay(DELAY_1MILLI);
 	}
 
-
-	if(T2[2]>T1[2])
+	if(T2[INDEX_2]>T1[INDEX_2])
 	{
-		distance =  (T2[2] - T1[2])*.034/2;
+		distance =  (T2[INDEX_2] - T1[INDEX_2])*VELOCITY/DIVIDE_BY_TWO;
 	}
 	else
 	{
-		distance = ((0xffff - T1[2]) + T2[2])*.034/2;
+		distance = ((0xffff - T1[INDEX_2]) + T2[INDEX_2])*VELOCITY/DIVIDE_BY_TWO;
 	}
-
-	flag[2] = 0;
+	if(distance>MAX_DISTANCE)
+	{
+		distance=MAX_DISTANCE;
+	}
+	else
+	{
+		/* do nothing */
+	}
+	flag[INDEX_2] = ZERO;
 	return distance;
 }
 
-float LeftUltrasonic_floatGetDistance(void)
+float LeftUltrasonic_voidGetDistance(void)
 {
-	float distance;
-		uint16_t time =0;
+	uint8_t distance;
+	uint8_t time =ZERO;
+	HAL_GPIO_WritePin(TRIG_PORT_4, TRIG_PIN_4, GPIO_PIN_SET);
+	delay(10);
+	HAL_GPIO_WritePin(TRIG_PORT_4, TRIG_PIN_4, GPIO_PIN_RESET);
+	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
+	while (flag[INDEX_3] < FLAG_CHECK && time <RUN_TIME_OUT)
+	{
+		time++;
+		HAL_Delay(DELAY_1MILLI);
+	}
 
-		HAL_GPIO_WritePin(TRIG_PORT_4, TRIG_PIN_4, GPIO_PIN_SET);
-		delay(10);
-		HAL_GPIO_WritePin(TRIG_PORT_4, TRIG_PIN_4, GPIO_PIN_RESET);
-		__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC4);
-		while (flag[3] < 2&& time <50)
-		{
-			time++;
-			HAL_Delay(1);
-		}
-
-
-		if(T2[3]>T1[3])
-		{
-			distance =  (T2[3] - T1[3])*.034/2;
-		}
-		else
-		{
-			distance = ((0xffff - T1[3]) + T2[3])*.034/2;
-		}
-
-		flag[3] = 0;
-		return distance;
+	if(T2[INDEX_3]>T1[INDEX_3])
+	{
+		distance =  (T2[INDEX_3] - T1[INDEX_3])*VELOCITY/DIVIDE_BY_TWO;
+	}
+	else
+	{
+		distance = ((0xffff - T1[INDEX_3]) + T2[INDEX_3])*VELOCITY/DIVIDE_BY_TWO;
+	}
+	if(distance>MAX_DISTANCE)
+	{
+		distance = MAX_DISTANCE;
+	}
+	else
+	{
+		/* do nothing */
+	}
+	flag[INDEX_3] = ZERO;
+	return distance;
 }
 
-void delay (uint16_t us)
+void delay(uint16_t us)
 {
-	__HAL_TIM_SET_COUNTER(&htim1, 0);
+	__HAL_TIM_SET_COUNTER(&htim1, ZERO);
 	while (__HAL_TIM_GET_COUNTER(&htim1) < us);
 }
+

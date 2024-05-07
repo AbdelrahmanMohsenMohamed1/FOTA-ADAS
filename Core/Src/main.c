@@ -73,7 +73,7 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+Data_Manager_t dm;
 uint8_t reading;
 /* USER CODE END 0 */
 
@@ -110,14 +110,14 @@ int main(void) {
 	MX_USART1_UART_Init();
 	MX_USART2_UART_Init();
 	/* USER CODE BEGIN 2 */
-ultrasonic_voidInit();
+	ultrasonic_voidInit();
 	/* USER CODE END 2 */
-
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
-		reading = LeftUltrasonic_floatGetDistance();
+
+	Service_DataCollectIRReading(&dm);
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */
@@ -388,13 +388,11 @@ static void MX_GPIO_Init(void) {
 
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(GPIOA,
-			mot1_in1_Pin | mot1_in2_Pin | mot2_in1_Pin | mot2_in2_Pin,
-			GPIO_PIN_RESET);
+	mot1_in1_Pin | mot1_in2_Pin | mot2_in1_Pin | mot2_in2_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(GPIOB,
-			GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_12 | GPIO_PIN_13,
-			GPIO_PIN_RESET);
+	GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_12 | GPIO_PIN_13, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin : PC13 */
 	GPIO_InitStruct.Pin = GPIO_PIN_13;
