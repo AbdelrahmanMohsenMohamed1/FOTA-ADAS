@@ -46,9 +46,9 @@ void Service_DataCollectIRReading(Data_Manager_t *DataManager) {
 	DataManager->FrontalRightIR = IR2_u8ObstacleDetect();
 	DataManager->RearLeftIR = IR3_u8ObstacleDetect();
 	DataManager->RearRightIR = IR4_u8ObstacleDetect();
-	DataManager->MidFrontIR1 = IR5_u8ObstacleDetect();
-	DataManager->MidFrontIR2 = IR5_u8ObstacleDetect();
-	DataManager->MidFrontIR3 = IR5_u8ObstacleDetect();
+	DataManager->IR_LF_Left = IR_LF_Left_u8ObstacleDetect();
+	DataManager->IR_LF_Mid = IR_LF_Mid_u8ObstacleDetect();
+	DataManager->IR_LF_Right = IR_LF_Right_u8ObstacleDetect();
 }
 
 /**
@@ -88,9 +88,9 @@ void Service_ConvertData(Data_Manager_t *pxDMObj, uint8_t *puRetString) {
 			,pxDMObj->FrontalRightIR
 			,pxDMObj->RearLeftIR
 			,pxDMObj->RearRightIR
-			,pxDMObj->MidFrontIR1
-			,pxDMObj->MidFrontIR2
-			,pxDMObj->MidFrontIR3
+			,pxDMObj->IR_LF_Left
+			,pxDMObj->IR_LF_Mid
+			,pxDMObj->IR_LF_Right
 			,pxDMObj->WaterSensorReading
 			,pxDMObj->DHT_Humidity
 			,pxDMObj->DHT_TempReading

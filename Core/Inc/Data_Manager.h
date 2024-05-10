@@ -39,9 +39,9 @@ typedef struct
 	uint8_t FrontalLeftIR;                 // Reading from the right infrared sensor
 	uint8_t RearLeftIR;                  // Reading from the left infrared sensor
 
-	uint8_t MidFrontIR1;
-	uint8_t MidFrontIR2;
-	uint8_t MidFrontIR3;
+	uint8_t IR_LF_Left;
+	uint8_t IR_LF_Mid;
+	uint8_t IR_LF_Right;
 
 	// 3 line follower
 
