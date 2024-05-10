@@ -23,4 +23,6 @@
 
 #define NUMBER_OF_SENSOR   4
 
+#define   MAX_DISTANCE              100
+
 #endif /* INC_ULTRASONIC_CONFG_H_ */
