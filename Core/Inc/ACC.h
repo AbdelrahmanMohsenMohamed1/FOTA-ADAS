@@ -37,4 +37,5 @@ typedef enum {
 
 ACC_ret_t ACC_Run(ACC_instance_t * px_ACCObj);
 ACC_ret_t ACC_Stop(ACC_instance_t * px_ACCObj);
+ACC_ret_t ACC_Resume(ACC_instance_t * px_ACCObj);
 #endif /* INC_ACC_H_ */

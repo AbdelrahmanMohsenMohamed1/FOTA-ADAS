@@ -76,11 +76,20 @@ ACC_ret_t ACC_Run(ACC_instance_t *px_ACCObj) {
 				retState = ACC_REQuest_FAILED;
 			}
 		}
+		else {
+			// ACC is disabled
+			retState = ACC_REQuest_FAILED;
+		}
 	}
 	return retState;
 }
 
 ACC_ret_t ACC_Stop(ACC_instance_t *px_ACCObj) {
+	px_ACCObj->u8_isACC_Activated = ACC_DISABLED;
+	return ACC_REQuest_PASSED;
+}
 
+ACC_ret_t ACC_Resume(ACC_instance_t *px_ACCObj) {
+	px_ACCObj->u8_isACC_Activated = ACC_INITIAL;
 	return ACC_REQuest_PASSED;
 }

@@ -8,19 +8,26 @@
 
 extern UART_HandleTypeDef huart1;
 
-static const uint8_t EndLine[] = { 0x0D, 0x0A};
+static const uint8_t EndLine[2] = { 0x0D, 0x0A};
 
-static const uint8_t ATD[] = "ATD+201115792888"; //Number to call
+static const uint8_t ATD[16] = "ATD+201115792888"; //Number to call
+
+void GSM_CHECK(void)
+{
+	static uint8_t at[2] = "AT";
+	HAL_UART_Transmit(&huart1,at , sizeof(at) ,HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart1, EndLine, sizeof(EndLine) ,HAL_MAX_DELAY);
 
 
+}
 void GSM_send_message(void)
 {
 
-	static uint8_t CMGF[] = "AT+CMGF=1";
-	static uint8_t CSMP[] = "AT+CSMP=17,167,0,0";
-	static uint8_t CMGS[] = "AT+CMGS=+201115792888"; //Number to send SMS
-	static uint8_t MSG[] = "I had an accident";
-	static const uint8_t ENDSMS = 0x1a;
+	static uint8_t CMGF[9] = "AT+CMGF=1";
+	static uint8_t CSMP[18] = "AT+CSMP=17,167,0,0";
+	static uint8_t CMGS[21] = "AT+CMGS=+201114614734"; //Number to send SMS
+	static uint8_t MSG[4] = "Help";
+	static uint8_t ENDSMS = 0x1a;
 
 	//SET GSM in text mode
 	HAL_UART_Transmit(&huart1,CMGF , sizeof(CMGF) ,HAL_MAX_DELAY);
@@ -35,8 +42,9 @@ void GSM_send_message(void)
 	HAL_UART_Transmit(&huart1, EndLine, sizeof(EndLine) ,HAL_MAX_DELAY);
 
 	//send message
+	HAL_Delay(20);
 	HAL_UART_Transmit(&huart1,MSG ,sizeof(MSG) ,HAL_MAX_DELAY);
-	HAL_UART_Transmit(&huart1,&ENDSMS,1 ,HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart1,&ENDSMS, 1 ,HAL_MAX_DELAY);
 }
 
 void GSM_make_call(void)

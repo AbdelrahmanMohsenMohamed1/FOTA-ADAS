@@ -14,7 +14,7 @@
 
 void GSM_send_message(void);
 void GSM_make_call(void);
-
+void GSM_CHECK(void);
 void GPS_take_location(uint8_t  pData[]);
 
 

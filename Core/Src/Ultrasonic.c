@@ -170,7 +170,8 @@ float FrontUltrasonic_voidGetDistance(void)
 	return distance;
 }
 
-float RearUltrasonic_voidGetDistance(void)
+
+uint8_t RearUltrasonic_voidGetDistance(void)
 {
 	uint8_t distance;
 	uint8_t time =ZERO;
@@ -204,7 +205,8 @@ float RearUltrasonic_voidGetDistance(void)
 	return distance;
 }
 
-float RightUltrasonic_voidGetDistance(void)
+
+uint8_t RightUltrasonic_voidGetDistance(void)
 {
 	uint8_t distance;
 	uint8_t time =ZERO;
@@ -239,7 +241,7 @@ float RightUltrasonic_voidGetDistance(void)
 	return distance;
 }
 
-float LeftUltrasonic_voidGetDistance(void)
+uint8_t LeftUltrasonic_voidGetDistance(void)
 {
 	uint8_t distance;
 	uint8_t time =ZERO;

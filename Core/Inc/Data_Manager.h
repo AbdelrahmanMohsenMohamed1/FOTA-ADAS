@@ -15,13 +15,22 @@
 #include "dht22.h"
 #include "Ultrasonic.h"
 
+#include <string.h>
+#include <stdio.h>
+
+#define MAX_DATA_LENGTH 64
+#define FRAME_DELIMITER '*'
+#define DATA_CONVERSION_BASE 10
+#define DATA_4DIGITS_SIZE 4
+#define DATA_LOCAL_BUFFER_SIZE  10
+
 typedef struct
 {
 	// Ultrasonic sensor readings
-	float FrontUltraReading;       // Reading from the front ultrasonic sensor
-	float RearUltraReading;        // Reading from the rear ultrasonic sensor
-	float RightSideUltraReading;   // Reading from the right side ultrasonic sensor
-	float LeftSideUltraReading;    // Reading from the left side ultrasonic sensor
+	uint8_t FrontUltraReading;       // Reading from the front ultrasonic sensor
+	uint8_t RearUltraReading;        // Reading from the rear ultrasonic sensor
+	uint8_t RightSideUltraReading;   // Reading from the right side ultrasonic sensor
+	uint8_t LeftSideUltraReading;    // Reading from the left side ultrasonic sensor
 
 	// Infrared sensor readings
 	uint8_t FrontalRightIR;                 // Reading from the front infrared sensor
@@ -29,7 +38,11 @@ typedef struct
 
 	uint8_t FrontalLeftIR;                 // Reading from the right infrared sensor
 	uint8_t RearLeftIR;                  // Reading from the left infrared sensor
-	uint8_t MidFrontIR;
+
+	uint8_t MidFrontIR1;
+	uint8_t MidFrontIR2;
+	uint8_t MidFrontIR3;
+
 	// 3 line follower
 
 	// Water sensor reading
@@ -37,6 +50,11 @@ typedef struct
 
 	// DHT sensor temperature reading
 	uint8_t DHT_TempReading;        // Reading from the DHT temperature sensor
+	uint8_t DHT_Humidity;
+
+	// Location
+	uint8_t Lattitude[10];
+	uint8_t Longitude[10];
 
 } Data_Manager_t;
 
@@ -75,6 +93,6 @@ void Service_DataCollectDHTReading(Data_Manager_t* DataManager);
  */
 void Service_DataCollectWaterReading(Data_Manager_t* DataManager);
 
-
+void Service_ConvertData(Data_Manager_t *pxDMObj , uint8_t *puRetString);
 
 #endif /* INC_DATA_MANAGER_H_ */
