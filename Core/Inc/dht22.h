@@ -9,8 +9,8 @@
 #define INC_DHT22_H_
 #include "stm32f1xx_hal.h"
 
-#define DHT22_PORT		GPIOA
-#define DHT22_PIN		GPIO_PIN_8
+#define DHT22_PORT		GPIOB
+#define DHT22_PIN		GPIO_PIN_15
 
 void Set_DHT22_Output(void);
 
